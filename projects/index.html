@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты фонда — Adamfond | Социальные и благотворительные проекты</title>
+    <meta name="description" content="Текущие и завершенные проекты благотворительного фонда «Адам». Участвуйте в социально значимых инициативах.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .progress-bar {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Проекты</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Наши проекты</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Социально значимые инициативы, направленные на помощь нуждающимся, поддержку предпринимателей и создание устойчивого будущего. Присоединяйтесь к реализации проектов.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="py-8 bg-gray-50 border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold font-heading">Все проекты</h2>
+                    <p class="text-gray-600">Выберите интересующую категорию</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterProjects('all')" class="px-4 py-2 bg-primary text-white rounded-lg font-medium filter-btn active">
+                        Все проекты
+                    </button>
+                    <button onclick="filterProjects('active')" class="px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium filter-btn hover:border-primary">
+                        <i class="fas fa-play-circle mr-2"></i>Текущие
+                    </button>
+                    <button onclick="filterProjects('completed')" class="px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium filter-btn hover:border-primary">
+                        <i class="fas fa-check-circle mr-2"></i>Завершённые
+                    </button>
+                    <button onclick="filterProjects('entrepreneur')" class="px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium filter-btn hover:border-primary">
+                        <i class="fas fa-briefcase mr-2"></i>Для предпринимателей
+                    </button>
+                    <button onclick="filterProjects('mutual-aid')" class="px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium filter-btn hover:border-primary">
+                        <i class="fas fa-shield-alt mr-2"></i>Касса взаимопомощи
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Благотворительная столовая -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="active">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/dining.jpg" alt="Благотворительная столовая" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Активный
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-primary/90 text-white text-sm font-semibold rounded-full">
+                                Помощь нуждающимся
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Благотворительная столовая «Тёплый ужин»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Еженедельные благотворительные ужины для нуждающихся семей, пенсионеров и людей в сложной жизненной ситуации.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Собрано средств</span>
+                                    <span class="font-semibold">245 000 ₽ / 500 000 ₽</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-primary" style="width: 49%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Участников</div>
+                                    <div class="font-semibold">89</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Минимальный взнос</div>
+                                    <div class="font-semibold">1 000 ₽</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span>Каждый четверг вечером</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Подробнее о проекте
+                                </button>
+                                <button class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                    Участвовать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Центр поддержки предпринимателей -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="entrepreneur active">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/business-center.jpg" alt="Центр поддержки предпринимателей" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Активный
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                Для предпринимателей
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Центр поддержки предпринимателей</h3>
+                        <p class="text-gray-600 mb-4">
+                            Создание бизнес-инкубатора для начинающих предпринимателей с обучением, консультациями и стартовым финансированием.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Собрано средств</span>
+                                    <span class="font-semibold">1 850 000 ₽ / 3 000 000 ₽</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-green-500" style="width: 62%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Инвесторов</div>
+                                    <div class="font-semibold">37</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Минимальный взнос</div>
+                                    <div class="font-semibold">10 000 ₽</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Планируется создать 50+ рабочих мест</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Подробнее о проекте
+                                </button>
+                                <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                    Инвестировать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Касса взаимопомощи -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="mutual-aid active">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/mutual-aid.jpg" alt="Касса взаимопомощи" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Активный
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-purple-500 text-white text-sm font-semibold rounded-full">
+                                Касса взаимопомощи
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Касса взаимопомощи «Защита семьи»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Финансовая защита участников в случае непредвиденных обстоятельств: болезни, потери имущества, несчастных случаев.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Фонд кассы</span>
+                                    <span class="font-semibold">5 200 000 ₽</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-purple-500" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Участников</div>
+                                    <div class="font-semibold">1 247</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Выплачено</div>
+                                    <div class="font-semibold">890 000 ₽</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-sm text-gray-600">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-shield-alt mr-2"></i>
+                                    <span>Защита здоровья: до 1 000 000 ₽</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home mr-2"></i>
+                                    <span>Защита имущества: до 10 000 000 ₽</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Подробнее о проекте
+                                </button>
+                                <button class="bg-purple-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                                    Присоединиться
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Швейная мастерская -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="entrepreneur completed">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/sewing-workshop.jpg" alt="Швейная мастерская" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-gray-500 text-white text-sm font-semibold rounded-full">
+                                Завершён
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                Для предпринимателей
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Швейная мастерская «Умелые руки»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Создание швейной мастерской для трудоустройства женщин из малообеспеченных семей и производства текстильной продукции.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="text-center py-4 bg-green-50 rounded-lg">
+                                <div class="text-2xl font-bold text-green-600 mb-1">Успешно завершён</div>
+                                <div class="text-sm text-gray-600">Сентябрь 2023 - Март 2024</div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Инвесторов</div>
+                                    <div class="font-semibold">42</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Сумма проекта</div>
+                                    <div class="font-semibold">2 100 000 ₽</div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="text-gray-600">Создано рабочих мест</div>
+                                    <div class="font-semibold">15</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-sm text-green-600 font-semibold">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                Проект окупился за 8 месяцев
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    Посмотреть отчёт
+                                </button>
+                                <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold">
+                                    Завершён
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Детский развивающий центр -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="active">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/children-center.jpg" alt="Детский развивающий центр" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Активный
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-yellow-500 text-white text-sm font-semibold rounded-full">
+                                Образование
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Детский развивающий центр «Будущее»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Создание бесплатного развивающего центра для детей из малообеспеченных семей с кружками, репетиторами и психологической помощью.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Собрано средств</span>
+                                    <span class="font-semibold">320 000 ₽ / 750 000 ₽</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-yellow-500" style="width: 43%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Участников</div>
+                                    <div class="font-semibold">64</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Минимальный взнос</div>
+                                    <div class="font-semibold">2 000 ₽</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-child mr-2"></i>
+                                <span>Планируется охватить 100+ детей</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Подробнее о проекте
+                                </button>
+                                <button class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+                                    Поддержать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Фермерский кооператив -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="entrepreneur active">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/projects/farm-cooperative.jpg" alt="Фермерский кооператив" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Активный
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                Для предпринимателей
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Фермерский кооператив «Зелёная долина»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Создание сельскохозяйственного кооператива для мелких фермеров с совместной закупкой техники, переработкой и сбытом продукции.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Собрано средств</span>
+                                    <span class="font-semibold">4 500 000 ₽ / 8 000 000 ₽</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-green-500" style="width: 56%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="text-gray-600">Инвесторов</div>
+                                    <div class="font-semibold">112</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600">Минимальный взнос</div>
+                                    <div class="font-semibold">10 000 ₽</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tractor mr-2"></i>
+                                <span>Объединит 20+ фермерских хозяйств</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t">
+                            <div class="flex justify-between items-center">
+                                <button class="text-primary font-semibold hover:underline flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Подробнее о проекте
+                                </button>
+                                <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                    Инвестировать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Empty State (hidden by default) -->
+            <div id="no-projects-message" class="hidden text-center py-16">
+                <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-search text-gray-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 font-heading">Проекты не найдены</h3>
+                <p class="text-gray-600 max-w-md mx-auto mb-8">
+                    В выбранной категории нет активных проектов. Попробуйте выбрать другую категорию или посмотрите все проекты.
+                </p>
+                <button onclick="filterProjects('all')" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                    Показать все проекты
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Add QR code image for charity payment -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Поддержите проекты</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Сканируйте QR-код для быстрого доступа к благотворительному взносу
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <img src="/assets/images/QR-Code-from-Tochka.png" alt="QR Code" class="w-48 h-48">
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Participate -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Как участвовать в проектах</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Выберите удобный для вас формат участия и станьте частью позитивных изменений
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Выберите проект</h3>
+                    <p class="text-gray-600 mb-6">
+                        Изучите текущие проекты фонда. Каждый проект имеет подробное описание, бюджет и сроки реализации.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        Минимальный взнос: от 1 000 ₽
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Определите формат</h3>
+                    <p class="text-gray-600 mb-6">
+                        Выберите подходящий формат участия: благотворительное пожертвование или инвестиция в проект с возможностью возврата средств.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        Для инвестиций: от 10 000 ₽
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Примите участие</h3>
+                    <p class="text-gray-600 mb-6">
+                        Свяжитесь с нами через форму на сайте или по телефону. Наш менеджер поможет оформить участие.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        Получайте регулярные отчёты
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-primary/5 rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4 font-heading">Есть свой проект?</h3>
+                <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                    Предложите свою социально значимую инициативу для рассмотрения фондом. Мы поможем с разработкой, финансированием и реализацией.
+                </p>
+                <a href="/contact" class="inline-block bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                    Предложить проект
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Начните менять мир уже сегодня</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Каждый проект — это реальная помощь конкретным людям и шаг к созданию устойчивого и справедливого общества.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="/contact" class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                        Получить консультацию
+                    </a>
+                    <a href="tel:88002225395" class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i>8 (800) 222-53-95
+                    </a>
+                </div>
+                
+                <div class="mt-8 text-white/80">
+                    <p>Или напишите нам в Telegram: <a href="https://t.me/adamfond" class="font-semibold hover:text-white">@adamfond</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Projects Filter Functionality
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const noProjectsMessage = document.getElementById('no-projects-message');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            let visibleCount = 0;
+            
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-primary', 'text-white');
+                btn.classList.add('bg-white', 'border', 'border-gray-300');
+            });
+            
+            // Mark active button
+            const activeBtn = Array.from(filterButtons).find(btn => 
+                btn.textContent.includes(category === 'all' ? 'Все проекты' : 
+                                       category === 'active' ? 'Текущие' :
+                                       category === 'completed' ? 'Завершённые' :
+                                       category === 'entrepreneur' ? 'Для предпринимателей' : 'Касса взаимопомощи')
+            );
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border-gray-300');
+                activeBtn.classList.add('active', 'bg-primary', 'text-white');
+            }
+            
+            // Filter projects
+            projects.forEach(project => {
+                if (category === 'all' || project.dataset.category.includes(category)) {
+                    project.style.display = 'block';
+                    visibleCount++;
+                    setTimeout(() => {
+                        project.style.opacity = '1';
+                        project.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    project.style.opacity = '0';
+                    project.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        project.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Show/hide no projects message
+            if (visibleCount === 0) {
+                noProjectsMessage.classList.remove('hidden');
+            } else {
+                noProjectsMessage.classList.add('hidden');
+            }
+        }
+        
+        // Initialize projects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            document.querySelectorAll('.progress-fill').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+            
+            // Add click handlers to project buttons
+            document.querySelectorAll('.project-card button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('В реальном проекте здесь будет переход на страницу проекта или форма участия.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

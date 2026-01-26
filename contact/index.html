@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Adamfond | Свяжитесь с благотворительным фондом</title>
+    <meta name="description" content="Контакты благотворительного фонда «Адам». Телефон, email, адрес и форма обратной связи. Работаем по всей России.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-3px);
+        }
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            ring: 2px;
+            ring-color: #05affa;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Контакты</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Свяжитесь с нами</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Мы всегда рады ответить на ваши вопросы, выслушать предложения и помочь в решении любых вопросов, связанных с деятельностью фонда.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Phone Card -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-phone-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Телефон</h3>
+                    <p class="text-gray-600 mb-4">Бесплатный по России</p>
+                    <a href="tel:88002225395" class="text-2xl font-bold text-primary hover:text-primary/80 block mb-2">
+                        8 (800) 222-53-95
+                    </a>
+                    <p class="text-sm text-gray-500">Ежедневно с 9:00 до 21:00</p>
+                    <div class="mt-4">
+                        <a href="https://wa.me/78002225395" class="inline-flex items-center text-green-600 hover:text-green-700 mr-4">
+                            <i class="fab fa-whatsapp text-xl mr-2"></i>
+                            WhatsApp
+                        </a>
+                        <a href="viber://chat?number=78002225395" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                            <i class="fab fa-viber text-xl mr-2"></i>
+                            Viber
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-envelope text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Электронная почта</h3>
+                    <p class="text-gray-600 mb-4">Для общих вопросов и предложений</p>
+                    <a href="mailto:info@adamfond.com" class="text-lg font-semibold text-primary hover:text-primary/80 block mb-2 break-words">
+                        info@adamfond.com
+                    </a>
+                    <p class="text-sm text-gray-500">Ответ в течение 24 часов</p>
+                    <div class="mt-4">
+                        <a href="mailto:partners@adamfond.com" class="text-sm text-gray-600 hover:text-primary block">
+                            <i class="fas fa-handshake mr-1"></i>
+                            Партнёрам: partners@adamfond.com
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Address Card -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Адрес офиса</h3>
+                    <p class="text-gray-600 mb-4">Юридический адрес фонда</p>
+                    <div class="text-gray-700 mb-2">
+                        Республика Дагестан,<br>
+                        Новолакский район,<br>
+                        с. Тухчар, ул. Тридцатая, д. 1
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Работаем по всей России онлайн
+                    </p>
+                </div>
+                
+                <!-- Social Card -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-hashtag text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Социальные сети</h3>
+                    <p class="text-gray-600 mb-4">Следите за новостями фонда</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="https://t.me/adamfond" class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/adamfond" class="w-12 h-12 bg-pink-500 text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">
+                        <i class="fas fa-users mr-1"></i>
+                        Присоединяйтесь к нашему сообществу
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h2 class="text-3xl font-bold mb-2 font-heading">Напишите нам</h2>
+                        <p class="text-gray-600 mb-8">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Имя *</label>
+                                    <input disabled type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Телефон *</label>
+                                    <input disabled type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="+7 (___) ___-__-__">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Email *</label>
+                                <input disabled type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Тема обращения</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                    <option value="">Выберите тему</option>
+                                    <option value="help">Нужна помощь</option>
+                                    <option value="donation">Хочу помочь / сделать пожертвование</option>
+                                    <option value="project">Участие в проекте</option>
+                                    <option value="mutual-aid">Касса взаимопомощи</option>
+                                    <option value="entrepreneur">Поддержка предпринимателей</option>
+                                    <option value="volunteer">Волонтёрство</option>
+                                    <option value="partner">Партнёрство</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Сообщение *</label>
+                                <textarea disabled rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="Опишите ваш вопрос или предложение..."></textarea>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <input disabled type="checkbox" required id="agreement" class="mt-1 mr-3">
+                                <label for="agreement" class="text-sm text-gray-700">
+                                    Я согласен с <a href="/privacy" class="text-primary hover:underline">политикой конфиденциальности</a> и даю согласие на обработку персональных данных
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-3"></i>
+                                Отправить сообщение
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 p-4 bg-green-50 rounded-lg hidden" id="successMessage">
+                            <div class="flex items-center text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-semibold">Сообщение отправлено!</div>
+                                    <div class="text-sm">Мы свяжемся с вами в течение 2 часов.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map & Info -->
+                <div>
+                    <!-- Map -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                        <div class="p-6 border-b">
+                            <h3 class="text-2xl font-bold mb-2 font-heading">Наше местоположение</h3>
+                            <p class="text-gray-600">Республика Дагестан, с. Тухчар</p>
+                        </div>
+                        <div class="map-container relative">
+                            <!-- Placeholder for map -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-map-marked-alt text-primary text-5xl mb-4"></i>
+                                    <h4 class="text-xl font-bold mb-2">Карта местоположения</h4>
+                                    <p class="text-gray-600">В реальном проекте здесь будет интеграция с Яндекс.Картами или Google Maps</p>
+                                    <div class="mt-4 inline-flex items-center bg-primary text-white px-4 py-2 rounded-lg">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        <a href="https://yandex.ru/maps/?text=Республика+Дагестан,+Новолакский+район,+с.+Тухчар,+ул.+Тридцатая,+д.+1" class="hover:underline">
+                                            Открыть в Яндекс.Картах
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-50 text-sm text-gray-600">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Для личной встречи просим заранее согласовать время
+                        </div>
+                    </div>
+                    
+                    <!-- Working Hours -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h3 class="text-2xl font-bold mb-6 font-heading">Режим работы</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center pb-4 border-b">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-day text-primary mr-3"></i>
+                                    <span class="font-semibold">Понедельник - Пятница</span>
+                                </div>
+                                <span class="font-bold">9:00 - 21:00</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-4 border-b">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-day text-primary mr-3"></i>
+                                    <span class="font-semibold">Суббота</span>
+                                </div>
+                                <span class="font-bold">10:00 - 18:00</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-day text-primary mr-3"></i>
+                                    <span class="font-semibold">Воскресенье</span>
+                                </div>
+                                <span class="font-bold">10:00 - 16:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                            <div class="flex">
+                                <i class="fas fa-utensils text-yellow-600 text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold text-yellow-800">Благотворительные ужины</div>
+                                    <div class="text-sm text-yellow-700">Каждый четверг вечером. Приходите на ужин и общение.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Контактные лица</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Направьте ваш вопрос нужному специалисту для быстрого решения
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Помощь нуждающимся -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hands-helping text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Помощь нуждающимся</h3>
+                    <p class="text-gray-600 mb-4">Консультации по получению помощи, оформлению заявок</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Али Магомедов</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 101</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:help@adamfond.com" class="text-primary hover:underline">help@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Пожертвования и проекты -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-donate text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Пожертвования и проекты</h3>
+                    <p class="text-gray-600 mb-4">Вопросы участия в проектах, пожертвования, инвестиции</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Марина Смирнова</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 102</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:projects@adamfond.com" class="text-primary hover:underline">projects@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Касса взаимопомощи -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Касса взаимопомощи</h3>
+                    <p class="text-gray-600 mb-4">Вступление, выплаты, консультации по программам защиты</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Руслан Ахмадов</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 103</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:mutualaid@adamfond.com" class="text-primary hover:underline">mutualaid@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Предпринимателям -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Предпринимателям</h3>
+                    <p class="text-gray-600 mb-4">Поддержка бизнеса, стартапы, инвестиции</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Иван Петров</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 104</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:business@adamfond.com" class="text-primary hover:underline">business@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Волонтёрам -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Волонтёрам</h3>
+                    <p class="text-gray-600 mb-4">Присоединение к волонтёрской программе, мероприятия</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Анна Ковалёва</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 105</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:volunteer@adamfond.com" class="text-primary hover:underline">volunteer@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Партнёрам -->
+                <div class="contact-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Партнёрам</h3>
+                    <p class="text-gray-600 mb-4">Сотрудничество, совместные проекты, спонсорство</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-gray-400 mr-3"></i>
+                            <span class="font-semibold">Дмитрий Соколов</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+78002225395" class="text-primary hover:underline">доб. 106</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:partners@adamfond.com" class="text-primary hover:underline">partners@adamfond.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Contact -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold mb-6 font-heading text-center">Часто задаваемые вопросы</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Как быстро отвечают на обращения?</h4>
+                            <p class="text-gray-600">На телефонные звонки мы отвечаем сразу в рабочее время. Электронные письма обрабатываем в течение 24 часов. Формы обратной связи на сайте — в течение 2 часов.</p>
+                        </div>
+                        
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Можно ли приехать в офис без предварительной записи?</h4>
+                            <p class="text-gray-600">Да, но мы рекомендуем заранее согласовать визит по телефону, чтобы нужный специалист мог вас принять. Благотворительные ужины по четвергам открыты для всех без записи.</p>
+                        </div>
+                        
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Работаете ли вы в выходные и праздничные дни?</h4>
+                            <p class="text-gray-600">Телефонная линия работает ежедневно с 9:00 до 21:00. Офисные специалисты работают по графику выше. В государственные праздники возможны изменения в графике работы.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Можно ли отправить документы по почте?</h4>
+                            <p class="text-gray-600">Да, вы можете отправлять документы на юридический адрес фонда. Для срочных вопросов рекомендуем использовать электронную почту или мессенджеры.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="/faq" class="inline-flex items-center text-primary font-semibold hover:underline">
+                            <i class="fas fa-question-circle mr-2"></i>
+                            Перейти в раздел "Вопросы и ответы"
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contacts -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-accent to-accent/90 rounded-2xl p-8 md:p-12 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Экстренные ситуации</h2>
+                        <p class="text-xl mb-6">
+                            Если вам или вашим близким нужна срочная помощь, не ждите — звоните немедленно.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone-volume text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-lg">Экстренная линия</div>
+                                    <div class="text-2xl font-bold">8 (800) 222-53-95</div>
+                                </div>
+                            </div>
+                            <p class="text-white/90">
+                                Круглосуточная линия для экстренных обращений. При угрозе жизни или здоровью обращайтесь немедленно.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold mb-4 font-heading">Когда звонить:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle mt-1 mr-3"></i>
+                                <span>Угроза жизни или здоровью</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle mt-1 mr-3"></i>
+                                <span>Внезапная потеря жилья</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle mt-1 mr-3"></i>
+                                <span>Острая нехватка лекарств</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle mt-1 mr-3"></i>
+                                <span>Стихийные бедствия, пожары</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle mt-1 mr-3"></i>
+                                <span>Другие чрезвычайные ситуации</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const requiredFields = this.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Пожалуйста, заполните все обязательные поля');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> Отправка...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Show success message
+                    successMessage.classList.remove('hidden');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    
+                    // Hide success message after 10 seconds
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 10000);
+                }, 1500);
+            });
+            
+            // Phone input mask
+            const phoneInput = document.querySelector('input[type="tel"]');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                    e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+                });
+            }
+            
+            // Remove red border on input
+            const inputs = contactForm.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.classList.remove('border-red-500');
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

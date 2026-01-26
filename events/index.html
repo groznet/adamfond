@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мероприятия — Adamfond | Благотворительные ужины и события фонда</title>
+    <meta name="description" content="Благотворительные ужины и мероприятия фонда «Адам». Каждый четверг вечером — открытые встречи, общение и помощь нуждающимся.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .event-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: #05affa;
+            box-shadow: 0 10px 25px rgba(5, 175, 250, 0.1);
+        }
+        .filter-button {
+            transition: all 0.3s ease;
+        }
+        .filter-button.active {
+            background-color: #05affa;
+            color: white;
+            transform: scale(1.05);
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #05affa;
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: "❝";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 3rem;
+            color: #05affa;
+            opacity: 0.2;
+        }
+        .calendar-day {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .calendar-day.active {
+            background-color: #05affa;
+            color: white;
+        }
+        .calendar-day.has-event {
+            background-color: #f0f9ff;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+        .calendar-day.has-event:hover {
+            background-color: #e0f2fe;
+        }
+        .event-detail-image {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+        @media (min-width: 768px) {
+            .event-detail-image {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Мероприятия</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Мероприятия фонда</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Каждый четверг вечером мы проводим благотворительные ужины, где каждый может получить помощь, поддержку и тёплое общение.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Dinner Countdown -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-accent to-accent/90 rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-24 -translate-x-24"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                        <div class="lg:w-2/3">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Следующий благотворительный ужин</h2>
+                            <p class="text-xl mb-6">
+                                Традиционный четверговый ужин, где мы собираемся вместе, чтобы поделиться едой, общением и помощью. Приходите в гости!
+                            </p>
+                            
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-alt text-2xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Каждый четверг</div>
+                                        <div class="text-white/80">С 18:00 до 21:00</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-2xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Наш центр</div>
+                                        <div class="text-white/80">ул. Тридцатая, д. 1, с. Тухчар</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 inline-block">
+                                <div class="flex items-center">
+                                    <i class="fas fa-utensils text-3xl mr-4"></i>
+                                    <div>
+                                        <div class="font-bold text-2xl">Бесплатный ужин</div>
+                                        <div class="text-white/90">Для всех участников</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
+                                <h3 class="text-2xl font-bold mb-6 font-heading">До ужина осталось</h3>
+                                
+                                <div class="grid grid-cols-4 gap-4 mb-6">
+                                    <div class="text-center">
+                                        <div id="countdown-days" class="countdown-number">3</div>
+                                        <div class="countdown-label">дней</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div id="countdown-hours" class="countdown-number">15</div>
+                                        <div class="countdown-label">часов</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div id="countdown-minutes" class="countdown-number">42</div>
+                                        <div class="countdown-label">минут</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div id="countdown-seconds" class="countdown-number">18</div>
+                                        <div class="countdown-label">секунд</div>
+                                    </div>
+                                </div>
+                                
+                                <button onclick="showRegistrationForm('weekly-dinner')" class="w-full bg-white text-accent py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-user-plus mr-2"></i>
+                                    Записаться на ужин
+                                </button>
+                                
+                                <div class="mt-4 text-sm text-white/80">
+                                    <p><i class="fas fa-info-circle mr-1"></i> Регистрация не обязательна, но желательна</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Filter & Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2 font-heading">Предстоящие мероприятия</h2>
+                    <p class="text-gray-600">Выберите интересующий тип мероприятий</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-button px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium active" data-filter="all">
+                        Все мероприятия
+                    </button>
+                    <button class="filter-button px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium" data-filter="weekly">
+                        <i class="fas fa-utensils mr-2"></i>Ужины
+                    </button>
+                    <button class="filter-button px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium" data-filter="charity">
+                        <i class="fas fa-hand-holding-heart mr-2"></i>Благотворительные
+                    </button>
+                    <button class="filter-button px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium" data-filter="educational">
+                        <i class="fas fa-graduation-cap mr-2"></i>Образовательные
+                    </button>
+                    <button class="filter-button px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium" data-filter="volunteer">
+                        <i class="fas fa-users mr-2"></i>Волонтёрские
+                    </button>
+                </div>
+            </div>
+            
+            <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Event 1: Weekly Dinner -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="weekly">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/weekly-dinner.jpg" alt="Благотворительный ужин" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-primary text-white text-sm font-semibold rounded-full">
+                                Еженедельно
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                Бесплатно
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>Каждый четверг</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>18:00 - 21:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">Благотворительный ужин «Тёплый вечер»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Традиционная встреча, где мы делимся едой, общением и поддержкой. Приходите поужинать в хорошей компании.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Центр фонда «Адам», с. Тухчар</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-user-friends text-gray-400 mr-3"></i>
+                                <span>Осталось мест: <span class="font-semibold">24</span> из 50</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-utensils text-gray-400 mr-3"></i>
+                                <span>Бесплатное питание для всех</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('weekly-dinner')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('weekly-dinner')" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2: Charity Fair -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="charity">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/charity-fair.jpg" alt="Благотворительная ярмарка" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                15 марта
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-yellow-500 text-white text-sm font-semibold rounded-full">
+                                Семейное
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>15 марта 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>12:00 - 18:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">Весенняя благотворительная ярмарка</h3>
+                        <p class="text-gray-600 mb-4">
+                            Ярмарка handmade-товаров, выпечки и сувениров. Все вырученные средства направляются на помощь нуждающимся семьям.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Центральная площадь, с. Тухчар</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-shopping-basket text-gray-400 mr-3"></i>
+                                <span>Мастер-классы для детей и взрослых</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-music text-gray-400 mr-3"></i>
+                                <span>Концертная программа</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('charity-fair')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('charity-fair')" class="bg-accent text-white px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+                                Участвовать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3: Business Workshop -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="educational">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/business-workshop.jpg" alt="Бизнес-воркшоп" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-purple-500 text-white text-sm font-semibold rounded-full">
+                                22 марта
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-blue-500 text-white text-sm font-semibold rounded-full">
+                                Для предпринимателей
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>22 марта 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>10:00 - 16:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">Бизнес-воркшоп для начинающих предпринимателей</h3>
+                        <p class="text-gray-600 mb-4">
+                            Практический семинар по созданию бизнес-плана, привлечению финансирования и запуску собственного дела.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Бизнес-центр «Адам», Грозный</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-user-tie text-gray-400 mr-3"></i>
+                                <span>Ведущий: эксперт по малому бизнесу</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-certificate text-gray-400 mr-3"></i>
+                                <span>Сертификат участника</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('business-workshop')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('business-workshop')" class="bg-purple-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                                Зарегистрироваться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 4: Volunteer Day -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="volunteer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/volunteer-day.jpg" alt="День волонтёра" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                30 марта
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Волонтёрское
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>30 марта 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>9:00 - 15:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">День волонтёра: помощь пожилым</h3>
+                        <p class="text-gray-600 mb-4">
+                            Акция по помощи пожилым людям: уборка домов, доставка продуктов, мелкий ремонт и просто общение.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Сбор у центра фонда «Адам»</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-gray-400 mr-3"></i>
+                                <span>Требуется: 20 волонтёров</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-heart text-gray-400 mr-3"></i>
+                                <span>Обед и транспорт за счёт фонда</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('volunteer-day')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('volunteer-day')" class="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                Стать волонтёром
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 5: Health Day -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="charity educational">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/health-day.jpg" alt="День здоровья" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-blue-500 text-white text-sm font-semibold rounded-full">
+                                6 апреля
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-primary text-white text-sm font-semibold rounded-full">
+                                Бесплатно
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>6 апреля 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>10:00 - 17:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">День здоровья: бесплатные консультации врачей</h3>
+                        <p class="text-gray-600 mb-4">
+                            Бесплатные консультации терапевтов, кардиологов, педиатров. Измерение давления, сахара, ЭКГ для всех желающих.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Поликлиника с. Тухчар</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-user-md text-gray-400 mr-3"></i>
+                                <span>8 врачей-специалистов</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-pills text-gray-400 mr-3"></i>
+                                <span>Бесплатные витамины для детей</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('health-day')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('health-day')" class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 6: Children's Festival -->
+                <div class="event-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" data-category="charity">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/events/children-festival.jpg" alt="Детский праздник" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-pink-500 text-white text-sm font-semibold rounded-full">
+                                14 апреля
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-yellow-500 text-white text-sm font-semibold rounded-full">
+                                Для детей
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>14 апреля 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>11:00 - 16:00</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 font-heading">Детский праздник «Весенние улыбки»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Весёлый праздник для детей из малообеспеченных семей: аниматоры, мастер-классы, подарки и сладкий стол.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                                <span>Парк культуры и отдыха</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-child text-gray-400 mr-3"></i>
+                                <span>Для детей от 3 до 12 лет</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-gift text-gray-400 mr-3"></i>
+                                <span>Подарки для всех участников</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="showEventDetail('children-festival')" class="text-primary font-semibold hover:underline flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Подробнее
+                            </button>
+                            <button onclick="showRegistrationForm('children-festival')" class="bg-pink-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-pink-600 transition-colors">
+                                Записать ребёнка
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Empty State -->
+            <div id="no-events-message" class="hidden text-center py-16">
+                <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-calendar-times text-gray-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 font-heading">Мероприятия не найдены</h3>
+                <p class="text-gray-600 max-w-md mx-auto mb-8">
+                    В выбранной категории нет предстоящих мероприятий. Попробуйте выбрать другую категорию или посмотрите все мероприятия.
+                </p>
+                <button onclick="filterEvents('all')" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                    Показать все мероприятия
+                </button>
+            </div>
+            
+            <!-- View Past Events -->
+            <div class="text-center mt-12">
+                <button onclick="showPastEvents()" class="inline-flex items-center text-primary font-semibold hover:underline">
+                    <i class="fas fa-history mr-2"></i>
+                    Показать прошедшие мероприятия
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Calendar -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Календарь мероприятий</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Планируйте участие в мероприятиях фонда. Нажмите на день, чтобы увидеть запланированные события.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <button id="prev-month" class="text-gray-500 hover:text-primary">
+                            <i class="fas fa-chevron-left text-xl"></i>
+                        </button>
+                        <h3 id="current-month" class="text-2xl font-bold font-heading">Март 2024</h3>
+                        <button id="next-month" class="text-gray-500 hover:text-primary">
+                            <i class="fas fa-chevron-right text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-7 gap-2 mb-4">
+                        <div class="text-center font-semibold text-gray-500 py-2">Пн</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Вт</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Ср</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Чт</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Пт</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Сб</div>
+                        <div class="text-center font-semibold text-gray-500 py-2">Вс</div>
+                    </div>
+                    
+                    <div id="calendar-days" class="grid grid-cols-7 gap-2">
+                        <!-- Calendar days will be generated by JavaScript -->
+                    </div>
+                    
+                    <div id="calendar-events" class="mt-8 hidden">
+                        <h4 class="text-xl font-bold mb-4 font-heading text-primary" id="selected-date-title">Мероприятия на 15 марта</h4>
+                        <div id="date-events-list" class="space-y-4">
+                            <!-- Events for selected date will appear here -->
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <div class="flex items-center">
+                                <div class="calendar-day has-event mr-2"></div>
+                                <span class="text-sm text-gray-600">Есть мероприятия</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="calendar-day active mr-2"></div>
+                                <span class="text-sm text-gray-600">Сегодня</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="calendar-day bg-primary text-white mr-2"></div>
+                                <span class="text-sm text-gray-600">Благотворительные ужины (четверги)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Отзывы участников</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Что говорят люди, которые уже посещали наши мероприятия
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="/assets/images/avatars/testimonial1.jpg" alt="Али" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-semibold">Али Магомедов</div>
+                            <div class="text-sm text-gray-500">Участник ужинов</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Хожу на четверговые ужины уже полгода. Это не просто еда — это возможность пообщаться, получить совет, почувствовать, что ты не один. Спасибо фонду за эту традицию!"
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="/assets/images/avatars/testimonial2.jpg" alt="Марина" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-semibold">Марина Соколова</div>
+                            <div class="text-sm text-gray-500">Волонтёр</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Участвовала в Дне волонтёра — помогали пожилой соседке. Организация на высшем уровне: всё продумано, обеспечены инструментами, питанием. Теперь регулярно участвую в мероприятиях фонда."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="/assets/images/avatars/testimonial3.jpg" alt="Руслан" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-semibold">Руслан Ахмадов</div>
+                            <div class="text-sm text-gray-500">Предприниматель</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Бизнес-воркшоп от фонда помог мне структурировать идеи и составить работающий бизнес-план. Благодаря этому получил финансирование на открытие своей мастерской. Отличные эксперты!"
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Detail Modal -->
+    <div id="eventDetailModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <div id="eventDetailImage" class="event-detail-image w-full">
+                    <!-- Image will be set by JavaScript -->
+                </div>
+                <button onclick="hideEventDetail()" class="absolute top-4 right-4 bg-white text-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-8">
+                <div id="eventDetailContent">
+                    <!-- Content will be filled by JavaScript -->
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <div class="flex flex-col md:flex-row gap-4 justify-between">
+                        <div>
+                            <h4 class="font-bold mb-2">Остались вопросы?</h4>
+                            <p class="text-gray-600 text-sm">Звоните нам: <a href="tel:88002225395" class="text-primary hover:underline">8 (800) 222-53-95</a></p>
+                        </div>
+                        <button id="detailRegisterBtn" class="bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                            Записаться на мероприятие
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold font-heading" id="registrationTitle">Запись на мероприятие</h3>
+                    <button onclick="hideRegistrationForm()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="registrationForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Мероприятие</label>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div id="selectedEvent" class="font-semibold"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">ФИО *</label>
+                        <input type="text" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Телефон *</label>
+                        <input type="tel" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+7 (___) ___-__-__">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div id="participantsField" class="hidden">
+                        <label class="block text-gray-700 mb-2">Количество участников (включая вас)</label>
+                        <select class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="1">1 человек</option>
+                            <option value="2">2 человека</option>
+                            <option value="3">3 человека</option>
+                            <option value="4">4 человека</option>
+                            <option value="5">5 человек</option>
+                        </select>
+                    </div>
+                    
+                    <div id="childrenField" class="hidden">
+                        <label class="block text-gray-700 mb-2">Возраст детей</label>
+                        <input type="text" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Например: 5 лет и 8 лет">
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" required class="mr-2">
+                            <span class="text-sm text-gray-700">Я согласен с <a href="/privacy" class="text-primary hover:underline">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                        Отправить заявку
+                    </button>
+                    
+                    <div class="text-center text-sm text-gray-600">
+                        <p>После отправки заявки вы получите подтверждение по SMS. Мы напомним о мероприятии за день до начала.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold mb-6 font-heading text-center">Частые вопросы о мероприятиях</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Нужно ли записываться на благотворительные ужины?</h4>
+                            <p class="text-gray-600">Запись не обязательна, но желательна для планирования количества порций. Вы можете прийти без записи — всем хватит места и еды.</p>
+                        </div>
+                        
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Сколько стоит участие в мероприятиях?</h4>
+                            <p class="text-gray-600">Большинство мероприятий фонда бесплатны. Некоторые образовательные программы могут иметь символическую плату для покрытия расходов на материалы.</p>
+                        </div>
+                        
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Можно ли прийти с детьми?</h4>
+                            <p class="text-gray-600">Да, на большинство мероприятий можно приходить с детьми. На детских праздниках есть специальная программа для маленьких гостей.</p>
+                        </div>
+                        
+                        <div class="border-b pb-6">
+                            <h4 class="font-bold text-lg mb-2">Что взять с собой на волонтёрские акции?</h4>
+                            <p class="text-gray-600">Удобную одежду и обувь. Все необходимые инструменты и средства защиты предоставляет фонд. Питание и транспорт также обеспечиваем мы.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Как отменить запись на мероприятие?</h4>
+                            <p class="text-gray-600">Позвоните по номеру 8 (800) 222-53-95 или напишите на events@adamfond.com за сутки до мероприятия.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="/contact" class="inline-flex items-center text-primary font-semibold hover:underline">
+                            <i class="fas fa-question-circle mr-2"></i>
+                            Задать свой вопрос
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Присоединяйтесь к нашим мероприятиям</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Участвуйте в жизни сообщества, получайте помощь, делитесь опытом и создавайте добрые дела вместе с нами.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="showRegistrationForm('weekly-dinner')" class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-utensils mr-2"></i>Записаться на ужин
+                    </button>
+                    <a href="/volunteer" class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors">
+                        <i class="fas fa-hands-helping mr-2"></i>Стать волонтёром
+                    </a>
+                    <a href="tel:88002225395" class="bg-white/20 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-colors border border-white/30">
+                        <i class="fas fa-phone-alt mr-2"></i>8 (800) 222-53-95
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Events Data
+        const eventsData = {
+            'weekly-dinner': {
+                title: 'Благотворительный ужин «Тёплый вечер»',
+                category: 'weekly',
+                image: '/assets/images/events/weekly-dinner.jpg',
+                date: 'Каждый четверг',
+                time: '18:00 - 21:00',
+                location: 'Центр фонда «Адам», с. Тухчар',
+                description: 'Традиционная встреча, где мы делимся едой, общением и поддержкой. Каждый четверг мы собираемся вместе, чтобы поужинать в хорошей компании, обсудить насущные вопросы и просто почувствовать себя частью сообщества.',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Что вас ждёт:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Тёплый домашний ужин</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Живое общение и новые знакомства</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Консультации по вопросам помощи</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Информация о новых проектах фонда</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">Приходите сами и приводите друзей. Мы рады всем!</p>
+                `,
+                requiresParticipants: true,
+                requiresChildren: false
+            },
+            'charity-fair': {
+                title: 'Весенняя благотворительная ярмарка',
+                category: 'charity',
+                image: '/assets/images/events/charity-fair.jpg',
+                date: '15 марта 2024',
+                time: '12:00 - 18:00',
+                location: 'Центральная площадь, с. Тухчар',
+                description: 'Ярмарка handmade-товаров, выпечки и сувениров. Все вырученные средства направляются на помощь нуждающимся семьям. Приходите всей семьёй!',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Программа мероприятия:</h4>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between border-b pb-2">
+                            <span>12:00 - 13:00</span>
+                            <span class="font-semibold">Открытие ярмарки</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>13:00 - 15:00</span>
+                            <span class="font-semibold">Мастер-классы для детей</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>15:00 - 16:00</span>
+                            <span class="font-semibold">Концертная программа</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>16:00 - 18:00</span>
+                            <span class="font-semibold">Работа ярмарочных рядов</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Все средства от продаж направляются на закупку продуктовых наборов для многодетных семей.</p>
+                `,
+                requiresParticipants: true,
+                requiresChildren: true
+            },
+            'business-workshop': {
+                title: 'Бизнес-воркшоп для начинающих предпринимателей',
+                category: 'educational',
+                image: '/assets/images/events/business-workshop.jpg',
+                date: '22 марта 2024',
+                time: '10:00 - 16:00',
+                location: 'Бизнес-центр «Адам», Грозный',
+                description: 'Практический семинар по созданию бизнес-плана, привлечению финансирования и запуску собственного дела. Для начинающих предпринимателей.',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Темы воркшопа:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-primary mr-2"></i>
+                            <span>Создание бизнес-плана: от идеи к цифрам</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-coins text-primary mr-2"></i>
+                            <span>Источники финансирования для малого бизнеса</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-users text-primary mr-2"></i>
+                            <span>Подбор команды и создание рабочих мест</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-gavel text-primary mr-2"></i>
+                            <span>Юридические аспекты регистрации бизнеса</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-bullhorn text-primary mr-2"></i>
+                            <span>Маркетинг и продвижение на локальном рынке</span>
+                        </li>
+                    </ul>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-blue-700">
+                            <i class="fas fa-certificate mr-2"></i>
+                            <strong>Все участники получат:</strong> рабочие тетради, сертификат участника, индивидуальную консультацию от эксперта.
+                        </p>
+                    </div>
+                `,
+                requiresParticipants: false,
+                requiresChildren: false
+            },
+            'volunteer-day': {
+                title: 'День волонтёра: помощь пожилым',
+                category: 'volunteer',
+                image: '/assets/images/events/volunteer-day.jpg',
+                date: '30 марта 2024',
+                time: '9:00 - 15:00',
+                location: 'Сбор у центра фонда «Адам»',
+                description: 'Акция по помощи пожилым людям: уборка домов, доставка продуктов, мелкий ремонт и просто общение.',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Что будем делать:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">Уборка территорий</h5>
+                            <p class="text-sm text-gray-600">Расчистка дворов, уборка мусора</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">Мелкий ремонт</h5>
+                            <p class="text-sm text-gray-600">Починить забор, покрасить скамейку</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">Доставка продуктов</h5>
+                            <p class="text-sm text-gray-600">Привезти тяжёлые сумки из магазина</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">Общение</h5>
+                            <p class="text-sm text-gray-600">Просто поговорить, выслушать</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-700">
+                            <i class="fas fa-utensils mr-2"></i>
+                            <strong>Фонд обеспечивает:</strong> транспорт, рабочие инструменты, перчатки, питание (обед), воду.
+                        </p>
+                    </div>
+                `,
+                requiresParticipants: true,
+                requiresChildren: false
+            },
+            'health-day': {
+                title: 'День здоровья: бесплатные консультации врачей',
+                category: 'charity educational',
+                image: '/assets/images/events/health-day.jpg',
+                date: '6 апреля 2024',
+                time: '10:00 - 17:00',
+                location: 'Поликлиника с. Тухчар',
+                description: 'Бесплатные консультации терапевтов, кардиологов, педиатров. Измерение давления, сахара, ЭКГ для всех желающих.',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Специалисты, которые будут принимать:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-user-md text-primary mr-2"></i>
+                            <span>Терапевт (3 кабинета)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-heartbeat text-primary mr-2"></i>
+                            <span>Кардиолог</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-baby text-primary mr-2"></i>
+                            <span>Педиатр (2 кабинета)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-eye text-primary mr-2"></i>
+                            <span>Офтальмолог</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-tooth text-primary mr-2"></i>
+                            <span>Стоматолог (профилактический осмотр)</span>
+                        </li>
+                    </ul>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <p class="text-yellow-700">
+                            <i class="fas fa-pills mr-2"></i>
+                            <strong>Бесплатно раздаём:</strong> витамины для детей, тонометры для измерения давления (первым 50 посетителям).
+                        </p>
+                    </div>
+                `,
+                requiresParticipants: false,
+                requiresChildren: false
+            },
+            'children-festival': {
+                title: 'Детский праздник «Весенние улыбки»',
+                category: 'charity',
+                image: '/assets/images/events/children-festival.jpg',
+                date: '14 апреля 2024',
+                time: '11:00 - 16:00',
+                location: 'Парк культуры и отдыха',
+                description: 'Весёлый праздник для детей из малообеспеченных семей: аниматоры, мастер-классы, подарки и сладкий стол.',
+                details: `
+                    <h4 class="text-xl font-bold mb-4 font-heading">Развлечения для детей:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2 text-pink-700">Анимационная программа</h5>
+                            <p class="text-sm text-pink-600">Весёлые клоуны, конкурсы, игры</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2 text-yellow-700">Мастер-классы</h5>
+                            <p class="text-sm text-yellow-600">Рисование, лепка, поделки</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2 text-blue-700">Активные игры</h5>
+                            <p class="text-sm text-blue-600">Эстафеты, весёлые старты</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2 text-green-700">Сладкий стол</h5>
+                            <p class="text-sm text-green-600">Пироги, конфеты, мороженое</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <p class="text-purple-700">
+                            <i class="fas fa-gift mr-2"></i>
+                            <strong>Каждый ребёнок получит:</strong> набор для творчества, книгу, сладкий подарок. Для многодетных семей — дополнительные подарки.
+                        </p>
+                    </div>
+                `,
+                requiresParticipants: true,
+                requiresChildren: true
+            }
+        };
+        
+        // Calendar events by date (month/day)
+        const calendarEvents = {
+            '3/7': ['weekly-dinner'],
+            '3/14': ['weekly-dinner', 'charity-fair'],
+            '3/21': ['weekly-dinner'],
+            '3/22': ['business-workshop'],
+            '3/28': ['weekly-dinner'],
+            '3/30': ['volunteer-day'],
+            '4/4': ['weekly-dinner'],
+            '4/6': ['health-day'],
+            '4/11': ['weekly-dinner'],
+            '4/14': ['children-festival'],
+            '4/18': ['weekly-dinner'],
+            '4/25': ['weekly-dinner']
+        };
+        
+        // Current event for registration
+        let currentEventId = '';
+        
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize countdown timer
+            initCountdown();
+            
+            // Initialize event filtering
+            initEventFiltering();
+            
+            // Initialize calendar
+            initCalendar();
+            
+            // Form submission
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Спасибо за регистрацию! Вы получите подтверждение по SMS. Мы напомним о мероприятии за день до начала.');
+                hideRegistrationForm();
+                this.reset();
+            });
+            
+            // Phone input mask
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                    e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+                });
+            });
+            
+            // Close modals on outside click
+            document.getElementById('eventDetailModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideEventDetail();
+                }
+            });
+            
+            document.getElementById('registrationModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideRegistrationForm();
+                }
+            });
+        });
+        
+        // Countdown Timer
+        function initCountdown() {
+            // Set next Thursday 18:00
+            const now = new Date();
+            const daysUntilThursday = (4 - now.getDay() + 7) % 7 || 7;
+            const nextThursday = new Date(now);
+            nextThursday.setDate(now.getDate() + daysUntilThursday);
+            nextThursday.setHours(18, 0, 0, 0);
+            
+            function updateCountdown() {
+                const now = new Date();
+                const diff = nextThursday - now;
+                
+                if (diff <= 0) {
+                    // If Thursday has passed, set to next Thursday
+                    nextThursday.setDate(nextThursday.getDate() + 7);
+                    updateCountdown();
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Event Filtering
+        function initEventFiltering() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const events = document.querySelectorAll('.event-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter events
+                    let visibleCount = 0;
+                    
+                    events.forEach(event => {
+                        if (filter === 'all' || event.getAttribute('data-category').includes(filter)) {
+                            event.style.display = 'block';
+                            visibleCount++;
+                            setTimeout(() => {
+                                event.style.opacity = '1';
+                                event.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            event.style.opacity = '0';
+                            event.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                event.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                    
+                    // Show/hide no events message
+                    const noEventsMsg = document.getElementById('no-events-message');
+                    if (visibleCount === 0) {
+                        noEventsMsg.classList.remove('hidden');
+                    } else {
+                        noEventsMsg.classList.add('hidden');
+                    }
+                });
+            });
+        }
+        
+        function filterEvents(filter) {
+            document.querySelector(`.filter-button[data-filter="${filter}"]`).click();
+        }
+        
+        // Calendar Functions
+        function initCalendar() {
+            const currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+            
+            function renderCalendar(month, year) {
+                const calendarDays = document.getElementById('calendar-days');
+                const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                
+                document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
+                calendarDays.innerHTML = '';
+                
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const today = new Date();
+                
+                // Adjust for Monday first
+                let startDay = firstDay === 0 ? 6 : firstDay - 1;
+                
+                // Previous month days
+                const prevMonthDays = new Date(year, month, 0).getDate();
+                for (let i = startDay - 1; i >= 0; i--) {
+                    const day = document.createElement('div');
+                    day.className = 'calendar-day text-gray-400';
+                    day.textContent = prevMonthDays - i;
+                    calendarDays.appendChild(day);
+                }
+                
+                // Current month days
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const day = document.createElement('div');
+                    day.className = 'calendar-day';
+                    day.textContent = i;
+                    
+                    const dateKey = `${month + 1}/${i}`;
+                    
+                    // Check if today
+                    if (i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                        day.classList.add('active');
+                    }
+                    
+                    // Check if has events
+                    if (calendarEvents[dateKey]) {
+                        day.classList.add('has-event');
+                        if (calendarEvents[dateKey].includes('weekly-dinner')) {
+                            day.classList.add('bg-primary', 'text-white');
+                        }
+                        
+                        day.addEventListener('click', function() {
+                            showDateEvents(dateKey, i, month, year);
+                        });
+                    }
+                    
+                    calendarDays.appendChild(day);
+                }
+                
+                // Next month days
+                const totalCells = 42; // 6 rows * 7 columns
+                const nextMonthDays = totalCells - startDay - daysInMonth;
+                for (let i = 1; i <= nextMonthDays; i++) {
+                    const day = document.createElement('div');
+                    day.className = 'calendar-day text-gray-400';
+                    day.textContent = i;
+                    calendarDays.appendChild(day);
+                }
+            }
+            
+            function showDateEvents(dateKey, day, month, year) {
+                const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+                const eventsList = document.getElementById('date-events-list');
+                const eventsTitle = document.getElementById('selected-date-title');
+                const eventsContainer = document.getElementById('calendar-events');
+                
+                eventsTitle.textContent = `Мероприятия на ${day} ${monthNames[month]}`;
+                eventsList.innerHTML = '';
+                
+                if (calendarEvents[dateKey]) {
+                    calendarEvents[dateKey].forEach(eventId => {
+                        const event = eventsData[eventId];
+                        const eventElement = document.createElement('div');
+                        eventElement.className = 'bg-gray-50 p-4 rounded-lg';
+                        eventElement.innerHTML = `
+                            <div class="font-bold mb-1">${event.title}</div>
+                            <div class="text-sm text-gray-600 mb-2">
+                                <i class="fas fa-clock mr-1"></i>${event.time}
+                                <span class="mx-2">•</span>
+                                <i class="fas fa-map-marker-alt mr-1"></i>${event.location}
+                            </div>
+                            <button onclick="showEventDetail('${eventId}')" class="text-primary text-sm font-semibold hover:underline">
+                                Подробнее о мероприятии
+                            </button>
+                        `;
+                        eventsList.appendChild(eventElement);
+                    });
+                } else {
+                    eventsList.innerHTML = '<p class="text-gray-600 text-center py-4">На этот день мероприятия не запланированы</p>';
+                }
+                
+                eventsContainer.classList.remove('hidden');
+                
+                // Scroll to events
+                eventsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            
+            // Navigation buttons
+            document.getElementById('prev-month').addEventListener('click', function() {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+            
+            document.getElementById('next-month').addEventListener('click', function() {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+            
+            // Initial render
+            renderCalendar(currentMonth, currentYear);
+        }
+        
+        // Event Detail Modal
+        function showEventDetail(eventId) {
+            const event = eventsData[eventId];
+            const modal = document.getElementById('eventDetailModal');
+            const image = document.getElementById('eventDetailImage');
+            const content = document.getElementById('eventDetailContent');
+            const registerBtn = document.getElementById('detailRegisterBtn');
+            
+            // Set image
+            image.style.backgroundImage = `url('${event.image}')`;
+            image.style.backgroundSize = 'cover';
+            image.style.backgroundPosition = 'center';
+            
+            // Set content
+            content.innerHTML = `
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <span>${event.date}</span>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>${event.time}</span>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-map-marker-alt mr-1"></i>
+                    <span>${event.location}</span>
+                </div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 font-heading">${event.title}</h3>
+                
+                <p class="text-gray-700 text-lg mb-6">${event.description}</p>
+                
+                ${event.details}
+            `;
+            
+            // Set register button
+            registerBtn.setAttribute('onclick', `showRegistrationForm('${eventId}')`);
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideEventDetail() {
+            const modal = document.getElementById('eventDetailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Registration Modal
+        function showRegistrationForm(eventId) {
+            const event = eventsData[eventId];
+            const modal = document.getElementById('registrationModal');
+            const title = document.getElementById('registrationTitle');
+            const eventName = document.getElementById('selectedEvent');
+            const participantsField = document.getElementById('participantsField');
+            const childrenField = document.getElementById('childrenField');
+            
+            currentEventId = eventId;
+            
+            // Set event name
+            eventName.textContent = event.title;
+            
+            // Set modal title based on event type
+            if (eventId === 'weekly-dinner') {
+                title.textContent = 'Запись на благотворительный ужин';
+            } else if (eventId === 'volunteer-day') {
+                title.textContent = 'Регистрация волонтёра';
+            } else if (eventId === 'children-festival') {
+                title.textContent = 'Запись ребёнка на праздник';
+            } else {
+                title.textContent = 'Регистрация на мероприятие';
+            }
+            
+            // Show/hide fields based on event requirements
+            if (event.requiresParticipants) {
+                participantsField.classList.remove('hidden');
+            } else {
+                participantsField.classList.add('hidden');
+            }
+            
+            if (event.requiresChildren) {
+                childrenField.classList.remove('hidden');
+            } else {
+                childrenField.classList.add('hidden');
+            }
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            
+            // Hide event detail modal if open
+            hideEventDetail();
+        }
+        
+        function hideRegistrationForm() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Show past events (placeholder)
+        function showPastEvents() {
+            alert('В реальном проекте здесь будет переход на архив мероприятий с фотографиями и отчётами о прошедших событиях.');
+        }
+    </script>
+</body>
+</html>

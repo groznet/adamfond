@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержка предпринимателей — Adamfond | Программы для бизнеса и создания рабочих мест</title>
+    <meta name="description" content="Программы поддержки предпринимателей от фонда «Адам». Финансовая помощь, консультации, создание рабочих мест для начинающих бизнесменов.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .program-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .program-card:hover {
+            transform: translateY(-5px);
+            border-color: #05affa;
+            box-shadow: 0 10px 25px rgba(5, 175, 250, 0.1);
+        }
+        .step-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tw-gradient-stops));
+        }
+        .benefit-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .benefit-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .stats-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #05affa;
+            color: white;
+            transform: scale(1.05);
+        }
+        .calculator-input {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+        .calculator-input:focus {
+            outline: none;
+            border-color: #05affa;
+            box-shadow: 0 0 0 3px rgba(5, 175, 250, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Предпринимателям</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Поддержка предпринимателей</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Помогаем начинающим и действующим предпринимателям начать или развить свой бизнес. Финансовая помощь, консультации, создание рабочих мест.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats & Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">42</div>
+                    <div class="text-gray-700 font-semibold">Проекта реализовано</div>
+                    <div class="text-sm text-gray-500 mt-2">С 2020 года</div>
+                </div>
+                
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">150+</div>
+                    <div class="text-gray-700 font-semibold">Рабочих мест создано</div>
+                    <div class="text-sm text-gray-500 mt-2">В малом бизнесе</div>
+                </div>
+                
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">28M ₽</div>
+                    <div class="text-gray-700 font-semibold">Общий объём инвестиций</div>
+                    <div class="text-sm text-gray-500 mt-2">В предпринимательские проекты</div>
+                </div>
+                
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">89%</div>
+                    <div class="text-gray-700 font-semibold">Успешных проектов</div>
+                    <div class="text-sm text-gray-500 mt-2">Вышли на самоокупаемость</div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
+                        <i class="fas fa-bullseye mr-2"></i>
+                        <span class="font-semibold">Наша миссия</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">
+                        Развиваем предпринимательство, создаём рабочие места
+                    </h2>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Фонд «Адам» помогает начинающим предпринимателям преодолеть начальные барьеры и развить свой бизнес. Особое внимание уделяем проектам, которые создают рабочие места для людей в сложной жизненной ситуации.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-hand-holding-usd text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Доступное финансирование</h4>
+                                <p class="text-gray-600">Стартовые инвестиции и льготные займы для бизнеса</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-users text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Трудоустройство нуждающихся</h4>
+                                <p class="text-gray-600">Помощь в найме людей из социально уязвимых групп</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Бизнес-обучение</h4>
+                                <p class="text-gray-600">Бесплатные курсы и менторская поддержка</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+                        <div class="text-center mb-8">
+                            <div class="text-5xl font-bold text-primary mb-2">50%</div>
+                            <div class="text-gray-700 font-semibold">Скидка на аренду</div>
+                            <div class="text-sm text-gray-600">Для социальных предпринимателей</div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-semibold">Средний размер инвестиции</span>
+                                    <span class="text-primary font-bold text-xl">500 000 ₽</span>
+                                </div>
+                                <div class="text-sm text-gray-600">На начальном этапе бизнеса</div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-semibold">Срок окупаемости</span>
+                                    <span class="text-accent font-bold text-xl">18 месяцев</span>
+                                </div>
+                                <div class="text-sm text-gray-600">Средний показатель по проектам</div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-semibold">Мин. создаваемых рабочих мест</span>
+                                    <span class="text-green-500 font-bold text-xl">3</span>
+                                </div>
+                                <div class="text-sm text-gray-600">Для получения поддержки</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-full flex items-center justify-center">
+                        <div class="w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-briefcase text-accent text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Tabs -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Программы поддержки</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Выберите подходящую программу в зависимости от этапа развития вашего бизнеса
+                </p>
+            </div>
+            
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="tab-button px-6 py-3 bg-white border border-gray-300 rounded-lg font-medium" data-tab="startup">
+                    <i class="fas fa-seedling mr-2"></i>Стартапы
+                </button>
+                <button class="tab-button px-6 py-3 bg-white border border-gray-300 rounded-lg font-medium" data-tab="growth">
+                    <i class="fas fa-chart-line mr-2"></i>Развитие бизнеса
+                </button>
+                <button class="tab-button px-6 py-3 bg-white border border-gray-300 rounded-lg font-medium active" data-tab="social">
+                    <i class="fas fa-hands-helping mr-2"></i>Социальное предпринимательство
+                </button>
+                <button class="tab-button px-6 py-3 bg-white border border-gray-300 rounded-lg font-medium" data-tab="franchise">
+                    <i class="fas fa-store mr-2"></i>Франчайзинг
+                </button>
+            </div>
+            
+            <!-- Tabs Content -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <!-- Startup Tab -->
+                <div class="tab-content p-8 hidden" id="startup-tab">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-6 font-heading text-primary">Программа для стартапов</h3>
+                            <p class="text-gray-700 mb-6">
+                                Поддержка для тех, кто только начинает свой бизнес-путь. Помогаем превратить идею в работающий бизнес с минимальными рисками.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-coins text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Финансирование</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• До 300 000 ₽ на старт</li>
+                                        <li>• Льготная ставка 5% годовых</li>
+                                        <li>• Отсрочка платежа 6 месяцев</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-graduation-cap text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Обучение</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Бизнес-планирование</li>
+                                        <li>• Маркетинг и продажи</li>
+                                        <li>• Финансовый менеджмент</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-bold mb-3 text-blue-800">Требования к участникам:</h4>
+                                <ul class="space-y-2 text-blue-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Возраст от 18 лет</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Подробный бизнес-план</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Готовность создать минимум 2 рабочих места</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-b from-primary to-primary/80 text-white rounded-xl p-8">
+                            <h4 class="text-xl font-bold mb-6 font-heading">Быстрый старт</h4>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <i class="fas fa-bolt text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Рассмотрение заявки</div>
+                                        <div class="text-sm opacity-90">7 рабочих дней</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-check text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Срок поддержки</div>
+                                        <div class="text-sm opacity-90">12 месяцев</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-check text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Менторское сопровождение</div>
+                                        <div class="text-sm opacity-90">На протяжении года</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showApplicationForm('startup')" class="w-full bg-white text-primary py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                                Подать заявку
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Growth Tab -->
+                <div class="tab-content p-8 hidden" id="growth-tab">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-6 font-heading text-accent">Развитие действующего бизнеса</h3>
+                            <p class="text-gray-700 mb-6">
+                                Для предпринимателей, которые уже ведут бизнес и хотят масштабировать его, внедрить новые технологии или выйти на новые рынки.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-expand-alt text-accent text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Масштабирование</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Инвестиции до 1 000 000 ₽</li>
+                                        <li>• Помощь в открытии филиалов</li>
+                                        <li>• Маркетинговая поддержка</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-tools text-accent text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Модернизация</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Закупка оборудования</li>
+                                        <li>• Внедрение новых технологий</li>
+                                        <li>• Автоматизация процессов</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold mb-3 text-green-800">Критерии участия:</h4>
+                                <ul class="space-y-2 text-green-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Бизнес работает более 6 месяцев</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Положительная финансовая история</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>План развития на 2-3 года</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                        <span>Создание новых рабочих мест</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-b from-accent to-accent/80 text-white rounded-xl p-8">
+                            <h4 class="text-xl font-bold mb-6 font-heading">Инвестиции в рост</h4>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <i class="fas fa-chart-bar text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Мин. оборот бизнеса</div>
+                                        <div class="text-sm opacity-90">100 000 ₽/месяц</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-handshake text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Форма поддержки</div>
+                                        <div class="text-sm opacity-90">Инвестиция или заём</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-briefcase text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Новые рабочие места</div>
+                                        <div class="text-sm opacity-90">Мин. +3 к текущим</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showApplicationForm('growth')" class="w-full bg-white text-accent py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                                Получить консультацию
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Entrepreneurship Tab -->
+                <div class="tab-content p-8" id="social-tab">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-6 font-heading text-primary">Социальное предпринимательство</h3>
+                            <p class="text-gray-700 mb-6">
+                                Поддержка бизнесов, которые решают социальные проблемы: трудоустройство инвалидов, помощь пожилым, экологические проекты, образование и другие социально значимые направления.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-heart text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Льготные условия</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Ставка 0% на первые 12 месяцев</li>
+                                        <li>• Скидка 50% на аренду помещений</li>
+                                        <li>• Гранты до 500 000 ₽</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-users text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Социальный эффект</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Трудоустройство социальных групп</li>
+                                        <li>• Решение общественных проблем</li>
+                                        <li>• Устойчивое развитие территорий</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-bold mb-3 text-purple-800">Направления поддержки:</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="font-semibold text-purple-700 mb-1">Образование</div>
+                                        <div class="text-sm text-purple-600">Курсы, репетиторство, детские центры</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-purple-700 mb-1">Здоровье</div>
+                                        <div class="text-sm text-purple-600">Фитнес, реабилитация, ЗОЖ</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-purple-700 mb-1">Экология</div>
+                                        <div class="text-sm text-purple-600">Переработка, очистка, эко-товары</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-purple-700 mb-1">Сельское хозяйство</div>
+                                        <div class="text-sm text-purple-600">Фермерство, локальные продукты</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-b from-purple-500 to-purple-600 text-white rounded-xl p-8">
+                            <h4 class="text-xl font-bold mb-6 font-heading">Особые условия</h4>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <i class="fas fa-percentage text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Доля социального эффекта</div>
+                                        <div class="text-sm opacity-90">Не менее 50% деятельности</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-friends text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Трудоустройство</div>
+                                        <div class="text-sm opacity-90">70% из социальных групп</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-award text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Грантовая поддержка</div>
+                                        <div class="text-sm opacity-90">Безвозмездное финансирование</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showApplicationForm('social')" class="w-full bg-white text-purple-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                                Получить грант
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Franchise Tab -->
+                <div class="tab-content p-8 hidden" id="franchise-tab">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-6 font-heading text-green-600">Франчайзинг успешных проектов</h3>
+                            <p class="text-gray-700 mb-6">
+                                Возможность открыть бизнес по готовой модели с минимальными рисками. Предоставляем проверенные бизнес-модели, обучение и постоянную поддержку.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-store text-green-600 text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Готовая модель</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Проверенные бизнес-процессы</li>
+                                        <li>• Обучение сотрудников</li>
+                                        <li>• Маркетинговые материалы</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-headset text-green-600 text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Поддержка</h4>
+                                    <ul class="space-y-1 text-sm text-gray-700">
+                                        <li>• Постоянное консультирование</li>
+                                        <li>• Помощь в закупках</li>
+                                        <li>• Юридическое сопровождение</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold mb-3 text-green-800">Доступные франшизы:</h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="font-semibold">Швейная мастерская</div>
+                                            <div class="text-sm text-green-600">Инвестиция: 800 000 ₽</div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">15 рабочих мест</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="font-semibold">Пекарня-кондитерская</div>
+                                            <div class="text-sm text-green-600">Инвестиция: 1 200 000 ₽</div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">8 рабочих мест</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="font-semibold">Студия детского развития</div>
+                                            <div class="text-sm text-green-600">Инвестиция: 600 000 ₽</div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">6 рабочих мест</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-b from-green-500 to-green-600 text-white rounded-xl p-8">
+                            <h4 class="text-xl font-bold mb-6 font-heading">Франчайзинговый пакет</h4>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <i class="fas fa-box-open text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Стартовый пакет</div>
+                                        <div class="text-sm opacity-90">Всё для открытия</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-chart-pie text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Роялти</div>
+                                        <div class="text-sm opacity-90">5% от оборота</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <i class="fas fa-sync-alt text-xl mr-3"></i>
+                                    <div>
+                                        <div class="font-semibold">Окупаемость</div>
+                                        <div class="text-sm opacity-90">12-18 месяцев</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showApplicationForm('franchise')" class="w-full bg-white text-green-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                                Выбрать франшизу
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Истории успеха</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Предприниматели, которые уже получили поддержку фонда и развивают свой бизнес
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/entrepreneurs/sewing.jpg" alt="Швейная мастерская" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-primary text-white text-sm font-semibold rounded-full">
+                                Социальный проект
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Швейная мастерская «Умелые руки»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Проект по трудоустройству женщин из малообеспеченных семей. Фонд предоставил оборудование и обучение.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Инвестиция фонда:</span>
+                                <span class="font-semibold">750 000 ₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Создано рабочих мест:</span>
+                                <span class="font-semibold text-green-600">12</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Окупаемость:</span>
+                                <span class="font-semibold">10 месяцев</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full overflow-hidden mr-3">
+                                <img src="/assets/images/avatars/entrepreneur1.jpg" alt="Айшат" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-semibold">Айшат Магомедова</div>
+                                <div class="text-sm text-gray-500">Основатель мастерской</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/entrepreneurs/bakery.jpg" alt="Пекарня" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+                                Франшиза
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Пекарня «Домашний хлеб»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Сетевая пекарня по франшизе фонда. Использует местные продукты и традиционные рецепты.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Инвестиция фонда:</span>
+                                <span class="font-semibold">1 200 000 ₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Создано рабочих мест:</span>
+                                <span class="font-semibold text-green-600">8</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Окупаемость:</span>
+                                <span class="font-semibold">14 месяцев</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full overflow-hidden mr-3">
+                                <img src="/assets/images/avatars/entrepreneur2.jpg" alt="Магомед" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-semibold">Магомед Алиев</div>
+                                <div class="text-sm text-gray-500">Владелец пекарни</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="/assets/images/entrepreneurs/farm.jpg" alt="Фермерское хозяйство" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                                Сельское хозяйство
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 font-heading">Фермерское хозяйство «Зелёная долина»</h3>
+                        <p class="text-gray-600 mb-4">
+                            Органическое фермерское хозяйство с полным циклом производства и реализацией через маркетплейсы.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Инвестиция фонда:</span>
+                                <span class="font-semibold">2 500 000 ₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Создано рабочих мест:</span>
+                                <span class="font-semibold text-green-600">15</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Окупаемость:</span>
+                                <span class="font-semibold">20 месяцев</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full overflow-hidden mr-3">
+                                <img src="/assets/images/avatars/entrepreneur3.jpg" alt="Руслан" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-semibold">Руслан Хасанов</div>
+                                <div class="text-sm text-gray-500">Глава фермерского хозяйства</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/projects" class="inline-flex items-center text-primary font-semibold hover:underline">
+                    <i class="fas fa-eye mr-2"></i>
+                    Смотреть все успешные проекты
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Как получить поддержку</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Простой и прозрачный процесс подачи заявки и получения поддержки
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Заявка и консультация</h3>
+                    <p class="text-gray-600 mb-6">
+                        Заполните анкету на сайте или позвоните нам. Наш специалист проведёт бесплатную консультацию.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        <i class="fas fa-clock mr-2"></i>
+                        30 минут
+                    </div>
+                </div>
+                
+                <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Бизнес-план</h3>
+                    <p class="text-gray-600 mb-6">
+                        Подготовьте бизнес-план с расчётами. Мы поможем с оформлением и доработкой.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        <i class="fas fa-file-alt mr-2"></i>
+                        3-7 дней
+                    </div>
+                </div>
+                
+                <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Рассмотрение комиссией</h3>
+                    <p class="text-gray-600 mb-6">
+                        Вашу заявку рассмотрит экспертная комиссия фонда. Возможен выезд на место.
+                    </p>
+                    <div class="text-primary font-semibold">
+                        <i class="fas fa-users mr-2"></i>
+                        7-14 дней
+                    </div>
+                </div>
+                
+                <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-heading">Заключение договора</h3>
+                    <p class="text-gray-600 mb-6">
+                        Подписание договора и получение поддержки. Начинайте реализацию проекта!
+                    </p>
+                    <div class="text-primary font-semibold">
+                        <i class="fas fa-handshake mr-2"></i>
+                        1-3 дня
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator & CTA -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Calculator -->
+                <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+                    <h2 class="text-3xl font-bold mb-6 font-heading">Калькулятор инвестиций</h2>
+                    <p class="text-gray-700 mb-8">
+                        Рассчитайте примерную сумму инвестиций для вашего проекта
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Тип бизнеса</label>
+                            <select id="businessType" class="calculator-input">
+                                <option value="1.0">Производство</option>
+                                <option value="0.8">Услуги</option>
+                                <option value="1.2">Торговля</option>
+                                <option value="0.9">Общественное питание</option>
+                                <option value="1.1">Сельское хозяйство</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2">Количество рабочих мест</label>
+                            <input type="range" id="jobsCount" min="2" max="20" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                <span>2</span>
+                                <span id="jobsValue">5 рабочих мест</span>
+                                <span>20</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2">Площадь помещения (м²)</label>
+                            <input type="number" id="areaSize" value="50" min="10" max="500" class="calculator-input">
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="socialProject" class="mr-2">
+                                <span class="text-gray-700">Социальный проект (трудоустройство нуждающихся)</span>
+                            </label>
+                        </div>
+                        
+                        <button onclick="calculateInvestment()" class="w-full bg-primary text-white py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                            Рассчитать инвестиции
+                        </button>
+                        
+                        <div id="result" class="hidden bg-white rounded-xl p-6 shadow-sm">
+                            <h3 class="text-xl font-bold mb-4 font-heading text-primary">Результат расчёта</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Рекомендуемая сумма инвестиций:</span>
+                                    <span id="investmentAmount" class="text-2xl font-bold text-primary">0 ₽</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Возможная поддержка фонда:</span>
+                                    <span id="fundSupport" class="text-xl font-semibold text-green-600">0 ₽</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Необходимые собственные средства:</span>
+                                    <span id="ownFunds" class="text-xl font-semibold">0 ₽</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-sm text-gray-600">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Это предварительный расчёт. Точная сумма определяется после анализа бизнес-плана.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 text-white">
+                    <h2 class="text-3xl font-bold mb-6 font-heading">Начните свой бизнес с поддержкой фонда «Адам»</h2>
+                    <p class="text-xl mb-8">
+                        Получите финансирование, консультации и помощь в создании рабочих мест для людей в сложной жизненной ситуации.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Без залога и поручителей</div>
+                                <div class="text-white/80 text-sm">Для социальных проектов</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Бесплатное обучение</div>
+                                <div class="text-white/80 text-sm">Бизнес-курсы и менторство</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Помощь в трудоустройстве</div>
+                                <div class="text-white/80 text-sm">Подбор сотрудников из нуждающихся</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <button onclick="showApplicationForm('general')" class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                            Подать заявку
+                        </button>
+                        <a href="tel:88002225395" class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors text-center">
+                            <i class="fas fa-phone-alt mr-2"></i>8 (800) 222-53-95
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 text-white/80">
+                        <p>Или напишите на email: <a href="mailto:business@adamfond.com" class="font-semibold hover:text-white">business@adamfond.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold font-heading" id="modalTitle">Заявка на поддержку предпринимателя</h3>
+                    <button onclick="hideApplicationForm()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="applicationForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Выбранная программа</label>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div id="selectedProgram" class="font-semibold"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">ФИО *</label>
+                        <input type="text" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Телефон *</label>
+                        <input type="tel" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+7 (___) ___-__-__">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email *</label>
+                        <input type="email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Название проекта/бизнеса</label>
+                        <input type="text" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Описание проекта</label>
+                        <textarea rows="3" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Кратко опишите вашу бизнес-идею..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Планируемое количество рабочих мест</label>
+                        <select class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="">Выберите количество</option>
+                            <option value="2-3">2-3 рабочих места</option>
+                            <option value="4-6">4-6 рабочих мест</option>
+                            <option value="7-10">7-10 рабочих мест</option>
+                            <option value="11+">Более 10 рабочих мест</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" required class="mr-2">
+                            <span class="text-sm text-gray-700">Я согласен с <a href="/terms" class="text-primary hover:underline">условиями участия</a> и <a href="/privacy" class="text-primary hover:underline">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm text-gray-700">Хочу получить помощь в составлении бизнес-плана</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                        Отправить заявку
+                    </button>
+                    
+                    <div class="text-center text-sm text-gray-600">
+                        <p>После отправки заявки наш менеджер свяжется с вами в течение 24 часов для консультации.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active button
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected tab
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                        if (content.id === `${tabId}-tab`) {
+                            content.classList.remove('hidden');
+                        }
+                    });
+                });
+            });
+            
+            // Set initial active tab
+            document.querySelector('.tab-button.active').click();
+            
+            // Jobs slider
+            const jobsSlider = document.getElementById('jobsCount');
+            const jobsValue = document.getElementById('jobsValue');
+            
+            jobsSlider.addEventListener('input', function() {
+                jobsValue.textContent = `${this.value} рабочих мест`;
+            });
+            
+            // Phone input mask
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                    e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+                });
+            });
+        });
+        
+        // Investment Calculator
+        function calculateInvestment() {
+            const businessType = parseFloat(document.getElementById('businessType').value);
+            const jobsCount = parseInt(document.getElementById('jobsCount').value);
+            const areaSize = parseInt(document.getElementById('areaSize').value);
+            const isSocial = document.getElementById('socialProject').checked;
+            
+            // Base calculation
+            let baseInvestment = 100000; // Base 100k
+            baseInvestment += jobsCount * 50000; // 50k per job
+            baseInvestment += areaSize * 3000; // 3k per m²
+            baseInvestment *= businessType; // Adjust by business type
+            
+            // Apply social project discount
+            let fundSupport = baseInvestment * 0.6; // Fund covers 60%
+            let ownFunds = baseInvestment * 0.4; // Entrepreneur covers 40%
+            
+            if (isSocial) {
+                fundSupport = baseInvestment * 0.8; // Fund covers 80% for social projects
+                ownFunds = baseInvestment * 0.2; // Entrepreneur covers 20%
+            }
+            
+            // Format numbers
+            const formatter = new Intl.NumberFormat('ru-RU');
+            
+            document.getElementById('investmentAmount').textContent = formatter.format(Math.round(baseInvestment)) + ' ₽';
+            document.getElementById('fundSupport').textContent = formatter.format(Math.round(fundSupport)) + ' ₽';
+            document.getElementById('ownFunds').textContent = formatter.format(Math.round(ownFunds)) + ' ₽';
+            
+            // Show result
+            document.getElementById('result').classList.remove('hidden');
+        }
+        
+        // Application Modal Functions
+        function showApplicationForm(program) {
+            const modal = document.getElementById('applicationModal');
+            const programName = document.getElementById('selectedProgram');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            let programTitle = '';
+            
+            switch(program) {
+                case 'startup':
+                    programTitle = 'Программа для стартапов';
+                    modalTitle.textContent = 'Заявка на программу для стартапов';
+                    break;
+                case 'growth':
+                    programTitle = 'Развитие действующего бизнеса';
+                    modalTitle.textContent = 'Заявка на развитие бизнеса';
+                    break;
+                case 'social':
+                    programTitle = 'Социальное предпринимательство';
+                    modalTitle.textContent = 'Заявка на грант для социального предпринимательства';
+                    break;
+                case 'franchise':
+                    programTitle = 'Франчайзинг';
+                    modalTitle.textContent = 'Заявка на франшизу';
+                    break;
+                default:
+                    programTitle = 'Общая программа поддержки предпринимателей';
+                    modalTitle.textContent = 'Заявка на поддержку предпринимателя';
+            }
+            
+            programName.textContent = programTitle;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideApplicationForm() {
+            const modal = document.getElementById('applicationModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Form Submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Наш специалист свяжется с вами в течение 24 часов для консультации.');
+            hideApplicationForm();
+            this.reset();
+        });
+        
+        // Close modal on outside click
+        document.getElementById('applicationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideApplicationForm();
+            }
+        });
+    </script>
+</body>
+</html>

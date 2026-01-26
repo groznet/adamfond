@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условия участия — Adamfond | Правила участия в проектах фонда</title>
+    <meta name="description" content="Условия участия в благотворительных проектах фонда «Адам». Правила для благотворителей, участников проектов и кассы взаимопомощи.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .terms-section {
+            scroll-margin-top: 2rem;
+        }
+        .toc-link {
+            position: relative;
+            padding-left: 1rem;
+        }
+        .toc-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #05affa;
+            border-radius: 50%;
+        }
+        .toc-link.active {
+            color: #05affa;
+            font-weight: 600;
+        }
+        .toc-link.active::before {
+            background-color: #ff5c39;
+            width: 8px;
+            height: 8px;
+        }
+        .legal-term {
+            border-left: 3px solid #05affa;
+            background-color: #f8fafc;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box {
+            background-color: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .info-box {
+            background-color: #dbeafe;
+            border: 1px solid #60a5fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            background-color: #d1fae5;
+            border: 1px solid #34d399;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .participation-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .participation-card:hover {
+            transform: translateY(-3px);
+            border-color: #05affa;
+        }
+        .step-indicator {
+            width: 32px;
+            height: 32px;
+            background-color: #05affa;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Условия участия</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Условия участия</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Правила и условия участия в проектах, программах и кассе взаимопомощи благотворительного фонда «Адам»
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents & Content -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-6 font-heading text-primary">Содержание</h3>
+                        <nav class="space-y-3">
+                            <a href="#introduction" class="block toc-link hover:text-primary transition-colors">
+                                Введение и основные положения
+                            </a>
+                            <a href="#general-terms" class="block toc-link hover:text-primary transition-colors">
+                                Общие условия
+                            </a>
+                            <a href="#participant-types" class="block toc-link hover:text-primary transition-colors">
+                                Типы участников
+                            </a>
+                            <a href="#charity-terms" class="block toc-link hover:text-primary transition-colors">
+                                Условия для благотворителей
+                            </a>
+                            <a href="#project-terms" class="block toc-link hover:text-primary transition-colors">
+                                Участие в проектах
+                            </a>
+                            <a href="#mutual-aid-terms" class="block toc-link hover:text-primary transition-colors">
+                                Касса взаимопомощи
+                            </a>
+                            <a href="#entrepreneur-terms" class="block toc-link hover:text-primary transition-colors">
+                                Поддержка предпринимателей
+                            </a>
+                            <a href="#volunteer-terms" class="block toc-link hover:text-primary transition-colors">
+                                Волонтёрская деятельность
+                            </a>
+                            <a href="#rights-obligations" class="block toc-link hover:text-primary transition-colors">
+                                Права и обязанности
+                            </a>
+                            <a href="#financial-terms" class="block toc-link hover:text-primary transition-colors">
+                                Финансовые условия
+                            </a>
+                            <a href="#dispute-resolution" class="block toc-link hover:text-primary transition-colors">
+                                Разрешение споров
+                            </a>
+                            <a href="#final" class="block toc-link hover:text-primary transition-colors">
+                                Заключительные положения
+                            </a>
+                        </nav>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <div class="text-sm text-gray-600">
+                                <p class="mb-2"><i class="far fa-calendar-alt mr-2"></i>Дата вступления в силу:</p>
+                                <p class="font-semibold">1 января 2024 года</p>
+                            </div>
+                            <div class="mt-4 text-sm text-gray-600">
+                                <p class="mb-2"><i class="fas fa-file-pdf mr-2"></i>Версия для скачивания:</p>
+                                <a href="/assets/documents/terms-of-participation.pdf" class="text-primary hover:underline inline-flex items-center">
+                                    <i class="fas fa-download mr-2"></i>
+                                    PDF (285 КБ)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <!-- Introduction -->
+                        <section id="introduction" class="terms-section mb-12">
+                            <div class="flex items-start mb-6">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-file-contract text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-2xl md:text-3xl font-bold mb-4 font-heading">Введение и основные положения</h2>
+                                    <p class="text-gray-700 mb-4">
+                                        Настоящие Условия участия (далее — «Условия») регулируют отношения между Благотворительным фондом «Адам» (далее — «Фонд», «мы», «наш») и физическими или юридическими лицами (далее — «Участник», «вы», «ваш») при участии в деятельности Фонда.
+                                    </p>
+                                    <p class="text-gray-700 mb-4">
+                                        Участвуя в проектах, программах или кассе взаимопомощи Фонда, вы подтверждаете, что ознакомились с настоящими Условиями и соглашаетесь с ними в полном объёме.
+                                    </p>
+                                    <div class="info-box">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-info-circle text-blue-500 text-xl mr-3 mt-1"></i>
+                                            <div>
+                                                <p class="font-semibold text-blue-800">Важно:</p>
+                                                <p class="text-blue-700">Участие в деятельности Фонда осуществляется на добровольной основе и не предполагает получение коммерческой выгоды, за исключением случаев участия в инвестиционных проектах на условиях, определённых отдельными договорами.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- General Terms -->
+                        <section id="general-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">1</span>
+                                Общие условия участия
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">1.1. Правовая основа</h3>
+                                    <p class="text-gray-700">
+                                        Деятельность Фонда осуществляется в соответствии с:
+                                    </p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях»</li>
+                                        <li>Федеральным законом РФ от 07.05.1998 № 75-ФЗ «О негосударственных пенсионных фондах» (в части кассы взаимопомощи)</li>
+                                        <li>Гражданским кодексом Российской Федерации</li>
+                                        <li>Налоговым кодексом Российской Федерации</li>
+                                        <li>Уставом Благотворительного фонда «Адам»</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">1.2. Требования к участникам</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Для участия в деятельности Фонда необходимо:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                        <li>Достижение возраста 18 лет (для физических лиц)</li>
+                                        <li>Действующая регистрация (для юридических лиц)</li>
+                                        <li>Отсутствие ограничений дееспособности</li>
+                                        <li>Согласие с настоящими Условиями</li>
+                                        <li>Предоставление достоверной информации при регистрации</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="warning-box">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mr-3 mt-1"></i>
+                                        <div>
+                                            <p class="font-semibold text-yellow-800">Ограничения:</p>
+                                            <p class="text-yellow-700">Фонд оставляет за собой право отказать в участии лицам, чья деятельность противоречит целям и принципам Фонда, или в случае предоставления недостоверной информации.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">1.3. Изменение условий</h3>
+                                    <p class="text-gray-700">
+                                        Фонд оставляет за собой право в одностороннем порядке вносить изменения в настоящие Условия. Актуальная версия Условий всегда доступна на сайте adamfond.com/terms. Продолжая участие в деятельности Фонда после внесения изменений, вы соглашаетесь с новой редакцией Условий.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Participant Types -->
+                        <section id="participant-types" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">2</span>
+                                Типы участников
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Фонд объединяет три основные категории участников, каждая из которых имеет свои особенности участия:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="participation-card bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-hands-helping text-primary text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-4 font-heading">Нуждающиеся</h3>
+                                    <ul class="space-y-2 text-gray-700 mb-4">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Люди в сложной жизненной ситуации</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Получатели социальной помощи</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Участники благотворительных программ</span>
+                                        </li>
+                                    </ul>
+                                    <div class="text-sm text-gray-600">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Помощь оказывается на безвозмездной основе
+                                    </div>
+                                </div>
+                                
+                                <div class="participation-card bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-heart text-accent text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-4 font-heading">Благотворители</h3>
+                                    <ul class="space-y-2 text-gray-700 mb-4">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-accent text-sm mt-1 mr-2"></i>
+                                            <span>Частные лица и организации</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-accent text-sm mt-1 mr-2"></i>
+                                            <span>Добровольные пожертвования</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-accent text-sm mt-1 mr-2"></i>
+                                            <span>Участие в благотворительных акциях</span>
+                                        </li>
+                                    </ul>
+                                    <div class="text-sm text-gray-600">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Возможность получения налогового вычета
+                                    </div>
+                                </div>
+                                
+                                <div class="participation-card bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-handshake text-primary text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-4 font-heading">Партнёры проектов</h3>
+                                    <ul class="space-y-2 text-gray-700 mb-4">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Участники социальных проектов</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Инвесторы в проекты фонда</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Участники кассы взаимопомощи</span>
+                                        </li>
+                                    </ul>
+                                    <div class="text-sm text-gray-600">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Минимальный взнос от 10 000 ₽
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Charity Terms -->
+                        <section id="charity-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">3</span>
+                                Условия для благотворителей
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">3.1. Формы пожертвований</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Благотворители могут осуществлять пожертвования в следующих формах:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                        <li><strong>Денежные средства</strong> — через банковский перевод, платёжные системы, наличными в офисе Фонда</li>
+                                        <li><strong>Имущество</strong> — товары, оборудование, недвижимость (при условии соответствия целям Фонда)</li>
+                                        <li><strong>Услуги и работы</strong> — профессиональные услуги, волонтёрская помощь</li>
+                                        <li><strong>Ценные бумаги</strong> — акции, облигации, иные ценные бумаги</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">3.2. Налоговые вычеты</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Физические лица — резиденты РФ имеют право на получение социального налогового вычета в размере фактически произведённых пожертвований, но не более 25% от суммы дохода, полученного в налоговом периоде.
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Для получения вычета необходимо:
+                                    </p>
+                                    <ol class="list-decimal pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>Предоставить в налоговый орган декларацию по форме 3-НДФЛ</li>
+                                        <li>Приложить подтверждающие документы (платёжные документы, договор пожертвования)</li>
+                                        <li>Получить справку из Фонда о произведённом пожертвовании</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">3.3. Направление средств</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Пожертвования направляются на реализацию уставных целей Фонда:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                        <li>Помощь нуждающимся</li>
+                                        <li>Реализация социальных программ и проектов</li>
+                                        <li>Организация благотворительных мероприятий</li>
+                                        <li>Поддержка предпринимательских инициатив</li>
+                                        <li>Формирование фонда кассы взаимопомощи</li>
+                                        <li>Административные расходы (не более 20% от общей суммы поступлений)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="success-box">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 text-xl mr-3 mt-1"></i>
+                                        <div>
+                                            <p class="font-semibold text-green-800">Прозрачность и отчётность:</p>
+                                            <p class="text-green-700">Фонд ежеквартально публикует отчёты об использовании средств на сайте adamfond.com. Каждый благотворитель может запросить детальный отчёт о направлении своего пожертвования.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Project Participation -->
+                        <section id="project-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">4</span>
+                                Участие в проектах фонда
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">4.1. Общие положения</h3>
+                                    <p class="text-gray-700">
+                                        Участие в проектах Фонда осуществляется на основе договора об участии, который определяет конкретные условия каждого проекта. Каждый проект имеет свой бюджет, сроки реализации, цели и ожидаемые результаты.
+                                    </p>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">4.2. Минимальный взнос</h3>
+                                    <div class="bg-blue-50 p-4 rounded-lg mb-3">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-700">10 000 рублей</div>
+                                            <div class="text-blue-600">Минимальная сумма участия в проекте</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700">
+                                        Минимальный взнос для участия в проекте составляет 10 000 (десять тысяч) рублей. Размер взноса может быть увеличен по желанию участника или в соответствии с условиями конкретного проекта.
+                                    </p>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">4.3. Пример расчёта</h3>
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <div class="mb-4">
+                                            <p class="text-gray-700 mb-2">Пример: Проект стоимостью 1 000 000 рублей</p>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                                    <div class="text-sm text-gray-600">Минимальный взнос</div>
+                                                    <div class="text-xl font-bold text-primary">10 000 ₽</div>
+                                                </div>
+                                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                                    <div class="text-sm text-gray-600">Максимальное количество участников</div>
+                                                    <div class="text-xl font-bold text-primary">100 человек</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-gray-700 text-sm">
+                                            <i class="fas fa-calculator mr-1"></i>
+                                            1 000 000 ₽ ÷ 10 000 ₽ = 100 возможных участников
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">4.4. Возвратные и невозвратные взносы</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div class="border border-green-200 bg-green-50 p-4 rounded-lg">
+                                            <h4 class="font-bold text-green-700 mb-2">Возвратные взносы</h4>
+                                            <ul class="space-y-1 text-green-700 text-sm">
+                                                <li>• Инвестиционные проекты</li>
+                                                <li>• Проекты с коммерческой составляющей</li>
+                                                <li>• Возврат по итогам реализации</li>
+                                                <li>• Оформляются отдельным договором</li>
+                                            </ul>
+                                        </div>
+                                        <div class="border border-blue-200 bg-blue-50 p-4 rounded-lg">
+                                            <h4 class="font-bold text-blue-700 mb-2">Невозвратные взносы</h4>
+                                            <ul class="space-y-1 text-blue-700 text-sm">
+                                                <li>• Благотворительные проекты</li>
+                                                <li>• Социальные программы</li>
+                                                <li>• Направляются на помощь нуждающимся</li>
+                                                <li>• Налоговые вычеты для физлиц</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">4.5. Порядок участия</h3>
+                                    <ol class="list-decimal pl-5 space-y-3 text-gray-700">
+                                        <li>
+                                            <strong>Выбор проекта</strong> — ознакомление с описанием проекта на сайте или в офисе Фонда
+                                        </li>
+                                        <li>
+                                            <strong>Консультация</strong> — обсуждение условий участия с представителем Фонда
+                                        </li>
+                                        <li>
+                                            <strong>Оформление договора</strong> — подписание договора об участии в проекте
+                                        </li>
+                                        <li>
+                                            <strong>Внесение взноса</strong> — оплата установленной суммы
+                                        </li>
+                                        <li>
+                                            <strong>Получение отчётности</strong> — регулярные отчёты о ходе реализации проекта
+                                        </li>
+                                        <li>
+                                            <strong>Участие в результатах</strong> — получение результатов в соответствии с условиями проекта
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Mutual Aid Terms -->
+                        <section id="mutual-aid-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">5</span>
+                                Касса взаимопомощи
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">5.1. Основные положения</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Касса взаимопомощи — это механизм коллективной финансовой поддержки участников Фонда в случае наступления непредвиденных обстоятельств.
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Участие в кассе взаимопомощи осуществляется на основе договора и регулируется отдельным Положением о кассе взаимопомощи.
+                                    </p>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">5.2. Программы защиты</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="border border-gray-200 rounded-lg p-4">
+                                            <div class="text-center mb-3">
+                                                <div class="text-2xl font-bold text-primary">3 000 ₽</div>
+                                                <div class="text-gray-600">Ежегодный взнос</div>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Базовая защита</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Защита здоровья и имущества</li>
+                                                <li>• Возмещение до 1 000 000 ₽</li>
+                                                <li>• Срок действия: 1 год</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="border border-accent rounded-lg p-4">
+                                            <div class="text-center mb-3">
+                                                <div class="text-2xl font-bold text-accent">30 000 ₽</div>
+                                                <div class="text-gray-600">Ежегодный взнос</div>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Расширенная защита</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Полная защита имущества</li>
+                                                <li>• Возмещение до 10 000 000 ₽</li>
+                                                <li>• Юридическая поддержка</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">5.3. Условия выплат</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Выплаты из кассы взаимопомощи осуществляются при наступлении следующих страховых случаев:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                        <li>Ущерб здоровью в результате несчастного случая</li>
+                                        <li>Повреждение или утрата недвижимого имущества</li>
+                                        <li>Стихийные бедствия, пожары, затопления</li>
+                                        <li>Иные обстоятельства непреодолимой силы</li>
+                                    </ul>
+                                    <div class="warning-box mt-3">
+                                        <p class="text-yellow-700">
+                                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                                            Выплаты не осуществляются при умышленном причинении ущерба, действиях в состоянии алкогольного или наркотического опьянения, нарушении законодательства.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">5.4. Порядок получения выплаты</h3>
+                                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                                        <li>Уведомление Фонда о наступлении страхового случая в течение 3 рабочих дней</li>
+                                        <li>Предоставление подтверждающих документов (акты, справки, фото/видео материалы)</li>
+                                        <li>Рассмотрение заявки комиссией Фонда в течение 14 рабочих дней</li>
+                                        <li>Принятие решения о выплате и её размере</li>
+                                        <li>Осуществление выплаты в течение 5 рабочих дней после принятия решения</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Entrepreneur Support -->
+                        <section id="entrepreneur-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">6</span>
+                                Поддержка предпринимателей
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">6.1. Цели поддержки</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Фонд оказывает поддержку предпринимателям для достижения следующих целей:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                        <li>Создание новых рабочих мест</li>
+                                        <li>Развитие малого и среднего бизнеса</li>
+                                        <li>Трудоустройство людей в сложной жизненной ситуации</li>
+                                        <li>Поддержка социального предпринимательства</li>
+                                        <li>Стимулирование экономического развития регионов</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">6.2. Формы поддержки</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                                <i class="fas fa-coins text-primary"></i>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Финансовая помощь</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Стартовое финансирование</li>
+                                                <li>• Инвестиции в развитие</li>
+                                                <li>• Льготные займы</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                                <i class="fas fa-gavel text-primary"></i>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Юридическое сопровождение</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Регистрация бизнеса</li>
+                                                <li>• Правовая поддержка</li>
+                                                <li>• Помощь в оформлении документов</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                                <i class="fas fa-chart-line text-primary"></i>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Консультационная поддержка</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Бизнес-планирование</li>
+                                                <li>• Маркетинговые консультации</li>
+                                                <li>• Обучение предпринимателей</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                                <i class="fas fa-users text-primary"></i>
+                                            </div>
+                                            <h4 class="font-bold mb-2">Организационная поддержка</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Подбор персонала</li>
+                                                <li>• Помощь в поиске помещений</li>
+                                                <li>• Организация партнёрств</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">6.3. Условия предоставления поддержки</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Для получения поддержки предприниматель должен:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                        <li>Представить бизнес-план с расчётом окупаемости</li>
+                                        <li>Гарантировать создание рабочих мест (минимум 3 рабочих места в течение первого года)</li>
+                                        <li>Предоставить обеспечение (залог, поручительство) при получении финансовой помощи</li>
+                                        <li>Согласиться на мониторинг деятельности со стороны Фонда</li>
+                                        <li>Обеспечить прозрачность ведения бизнеса</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Volunteer Terms -->
+                        <section id="volunteer-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">7</span>
+                                Волонтёрская деятельность
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">7.1. Права волонтёров</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Волонтёры Фонда имеют право на:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                        <li>Выбор видов и форм волонтёрской деятельности</li>
+                                        <li>Получение необходимой информации для выполнения работ</li>
+                                        <li>Обучение и повышение квалификации за счёт Фонда</li>
+                                        <li>Возмещение расходов, связанных с волонтёрской деятельностью</li>
+                                        <li>Получение характеристик и рекомендаций</li>
+                                        <li>Страхование от несчастных случаев на период деятельности</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">7.2. Обязанности волонтёров</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Волонтёры Фонда обязаны:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                        <li>Добросовестно выполнять взятые на себя обязательства</li>
+                                        <li>Соблюдать правила внутреннего распорядка Фонда</li>
+                                        <li>Бережно относиться к имуществу Фонда</li>
+                                        <li>Соблюдать конфиденциальность полученной информации</li>
+                                        <li>Уведомлять Фонд об изменении обстоятельств, влияющих на возможность выполнения обязательств</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">7.3. Виды волонтёрской деятельности</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="font-bold mb-2 text-primary">Регулярная деятельность</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Помощь в офисе Фонда</li>
+                                                <li>• Работа с благополучателями</li>
+                                                <li>• Организация мероприятий</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="font-bold mb-2 text-primary">Проектная деятельность</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Участие в конкретных проектах</li>
+                                                <li>• Выездные мероприятия</li>
+                                                <li>• Сбор средств и информации</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Rights and Obligations -->
+                        <section id="rights-obligations" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">8</span>
+                                Права и обязанности сторон
+                            </h2>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                                    <h3 class="text-xl font-bold mb-4 font-heading text-primary">Права и обязанности Фонда</h3>
+                                    
+                                    <div class="mb-4">
+                                        <h4 class="font-bold mb-2 text-primary">Права Фонда:</h4>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Определять направления использования средств</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Отказать в участии при нарушении условий</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Вносить изменения в условия участия</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Прекратить участие в случае нарушений</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold mb-2 text-primary">Обязанности Фонда:</h4>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Целевое использование средств</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Предоставление отчётности</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Соблюдение конфиденциальности</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Исполнение договорных обязательств</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                                    <h3 class="text-xl font-bold mb-4 font-heading text-accent">Права и обязанности Участника</h3>
+                                    
+                                    <div class="mb-4">
+                                        <h4 class="font-bold mb-2 text-accent">Права Участника:</h4>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Получать информацию о деятельности Фонда</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Требовать отчётности по использованию средств</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Отозвать согласие на обработку данных</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 text-sm mt-1 mr-2"></i>
+                                                <span>Прекратить участие в любой момент</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold mb-2 text-accent">Обязанности Участника:</h4>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Соблюдать условия участия</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Предоставлять достоверную информацию</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Своевременно вносить взносы</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-blue-500 text-sm mt-1 mr-2"></i>
+                                                <span>Информировать об изменениях данных</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Financial Terms -->
+                        <section id="financial-terms" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">9</span>
+                                Финансовые условия
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">9.1. Порядок внесения взносов</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Взносы могут быть внесены следующими способами:
+                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="font-bold mb-2">Безналичный расчёт</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Банковский перевод по реквизитам</li>
+                                                <li>• Платёжные системы (ЮKassa, CloudPayments)</li>
+                                                <li>• Перевод с банковской карты</li>
+                                                <li>• QR-код для быстрой оплаты</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="font-bold mb-2">Наличный расчёт</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• В офисе Фонда</li>
+                                                <li>• На благотворительных мероприятиях</li>
+                                                <li>• Через уполномоченных представителей</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">9.2. Возврат средств</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Возврат внесённых средств возможен в следующих случаях:
+                                    </p>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                        <li>
+                                            <strong>Техническая ошибка</strong> — при ошибочном перечислении большей суммы или двойном списании
+                                        </li>
+                                        <li>
+                                            <strong>Отмена проекта</strong> — если Фонд отменяет проект до его начала
+                                        </li>
+                                        <li>
+                                            <strong>Нарушение условий Фондом</strong> — существенное нарушение обязательств со стороны Фонда
+                                        </li>
+                                        <li>
+                                            <strong>По решению суда</strong> — при наличии соответствующего судебного решения
+                                        </li>
+                                    </ul>
+                                    <div class="warning-box mt-3">
+                                        <p class="text-yellow-700">
+                                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                                            Средства, внесённые в качестве благотворительного пожертвования, возврату не подлежат, за исключением случаев, предусмотренных законодательством.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">9.3. Комиссии и сборы</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Фонд не взимает дополнительных комиссий за участие в проектах или кассе взаимопомощи. Однако при оплате через платёжные системы могут взиматься комиссии этих систем.
+                                    </p>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <p class="text-blue-700">
+                                            <i class="fas fa-info-circle mr-2"></i>
+                                            <strong>Важно:</strong> Комиссии платёжных систем не являются доходом Фонда и не подлежат возврату при возврате взноса.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">9.4. Налогообложение</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <h4 class="font-bold mb-2 text-green-600">Для физических лиц</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Возможность налогового вычета 13%</li>
+                                                <li>• Лимит вычета: 25% от дохода за год</li>
+                                                <li>• Необходима декларация 3-НДФЛ</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <h4 class="font-bold mb-2 text-blue-600">Для юридических лиц</h4>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Отнесение на расходы (в пределах норм)</li>
+                                                <li>• Освобождение от НДС</li>
+                                                <li>• Отчётность в составе расходов</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Dispute Resolution -->
+                        <section id="dispute-resolution" class="terms-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">10</span>
+                                Разрешение споров
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">10.1. Досудебный порядок</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        Все споры и разногласия, возникающие из настоящих Условий или в связи с ними, стороны будут стремиться разрешить путём переговоров.
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Претензионный порядок является обязательным. Срок рассмотрения претензии — 30 календарных дней с момента её получения.
+                                    </p>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">10.2. Судебный порядок</h3>
+                                    <p class="text-gray-700 mb-3">
+                                        В случае невозможности разрешения спора путём переговоров, спор подлежит рассмотрению в суде по месту нахождения Фонда в соответствии с законодательством Российской Федерации.
+                                    </p>
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="text-yellow-700">
+                                            <i class="fas fa-gavel mr-2"></i>
+                                            Подсудность: споры рассматриваются в судах общей юрисдикции по месту нахождения Фонда (Республика Дагестан).
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">10.3. Срок исковой давности</h3>
+                                    <p class="text-gray-700">
+                                        Общий срок исковой давности по требованиям, вытекающим из настоящих Условий, составляет 3 (три) года с момента, когда сторона узнала или должна была узнать о нарушении своего права.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Final -->
+                        <section id="final" class="terms-section">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="step-indicator">11</span>
+                                Заключительные положения
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-primary pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">11.1. Действительность условий</h3>
+                                    <p class="text-gray-700">
+                                        Если какое-либо положение настоящих Условий будет признано недействительным или не имеющим юридической силы, это не повлияет на действительность остальных положений, которые остаются в полной силе и действии.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-green-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">11.2. Согласие с условиями</h3>
+                                    <p class="text-gray-700">
+                                        Факт участия в деятельности Фонда (внесение взноса, подписание договора, регистрация на сайте) означает полное и безоговорочное согласие с настоящими Условиями.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-blue-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">11.3. Контактная информация</h3>
+                                    <p class="text-gray-700">
+                                        По всем вопросам, связанным с настоящими Условиями, вы можете обращаться:
+                                    </p>
+                                    <div class="mt-3 space-y-2">
+                                        <p class="flex items-center">
+                                            <i class="fas fa-envelope text-primary mr-3"></i>
+                                            <span>Email: <a href="mailto:terms@adamfond.com" class="text-primary hover:underline">terms@adamfond.com</a></span>
+                                        </p>
+                                        <p class="flex items-center">
+                                            <i class="fas fa-phone text-primary mr-3"></i>
+                                            <span>Телефон: <a href="tel:88002225395" class="text-primary hover:underline">8 (800) 222-53-95</a> (доб. 108)</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                                            <span>Адрес: Республика Дагестан, Новолакский район, с. Тухчар, ул. Тридцатая, д. 1</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="border-l-4 border-accent pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">11.4. Реквизиты Фонда</h3>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-gray-700"><strong>Полное наименование:</strong> Благотворительный фонд «Адам»</p>
+                                        <p class="text-gray-700"><strong>Юридический адрес:</strong> Республика Дагестан, Новолакский район, с. Тухчар, ул. Тридцатая, д. 1</p>
+                                        <p class="text-gray-700"><strong>ИНН:</strong> 0571012345</p>
+                                        <p class="text-gray-700"><strong>КПП:</strong> 057101001</p>
+                                        <p class="text-gray-700"><strong>ОГРН:</strong> 1210500001234</p>
+                                        <p class="text-gray-700"><strong>Расчётный счёт:</strong> 40703810212345678901</p>
+                                        <p class="text-gray-700"><strong>Банк:</strong> ПАО "Сбербанк"</p>
+                                        <p class="text-gray-700"><strong>БИК:</strong> 044525225</p>
+                                        <p class="text-gray-700"><strong>Корр. счёт:</strong> 30101810400000000225</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg mt-6">
+                                    <div class="text-center">
+                                        <p class="text-lg font-semibold text-gray-700 mb-2">Дата последнего обновления: <span class="text-primary">1 января 2024 года</span></p>
+                                        <p class="text-gray-600">Версия: 3.0</p>
+                                        <p class="text-sm text-gray-500 mt-2">Условия участия являются публичной офертой в соответствии со ст. 437 ГК РФ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Download -->
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl p-6">
+                                <div class="flex flex-col md:flex-row items-center justify-between">
+                                    <div class="mb-4 md:mb-0">
+                                        <h3 class="text-xl font-bold mb-2 font-heading">Скачать полный текст</h3>
+                                        <p class="text-gray-700">Сохраните копию Условий участия на ваше устройство</p>
+                                    </div>
+                                    <div class="flex space-x-4">
+                                        <a href="/assets/documents/terms-of-participation.pdf" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                            <i class="fas fa-download mr-3"></i>
+                                            PDF (285 КБ)
+                                        </a>
+                                        <a href="/assets/documents/terms-of-participation.docx" class="inline-flex items-center bg-white text-primary border border-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                            <i class="fas fa-file-word mr-3"></i>
+                                            DOCX (210 КБ)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Готовы присоединиться?</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Ознакомившись с условиями участия, вы можете выбрать подходящий формат сотрудничества с фондом «Адам»
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="/projects" class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                        Участвовать в проектах
+                    </a>
+                    <a href="/mutual-aid" class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors">
+                        Присоединиться к кассе взаимопомощи
+                    </a>
+                    <a href="/contact" class="bg-white/20 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-colors border border-white/30">
+                        Получить консультацию
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Table of Contents active link tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.terms-section');
+            const navLinks = document.querySelectorAll('.toc-link');
+            
+            // Function to update active link
+            function updateActiveLink() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = sectionId;
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initial call
+            updateActiveLink();
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveLink);
+            
+            // Smooth scroll for TOC links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Generate last updated date
+            const lastUpdatedElement = document.getElementById('lastUpdated');
+            if (lastUpdatedElement) {
+                const today = new Date();
+                const formattedDate = today.toLocaleDateString('ru-RU', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                lastUpdatedElement.textContent = formattedDate;
+            }
+            
+            // Add print functionality
+            const printBtn = document.createElement('button');
+            printBtn.className = 'fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary/90 transition-colors z-40 hidden md:block';
+            printBtn.innerHTML = '<i class="fas fa-print text-xl"></i>';
+            printBtn.title = 'Распечатать условия';
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+            document.body.appendChild(printBtn);
+        });
+    </script>
+</body>
+</html>

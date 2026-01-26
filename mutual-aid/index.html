@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Касса взаимопомощи — Adamfond | Финансовая защита участников фонда</title>
+    <meta name="description" content="Касса взаимопомощи фонда «Адам» — финансовая защита в сложных жизненных ситуациях. Возмещение до 10 000 000 рублей.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .protection-card {
+            transition: all 0.3s ease;
+        }
+        .protection-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tw-gradient-stops));
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Касса взаимопомощи</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Касса взаимопомощи</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Финансовая защита для участников фонда в сложных жизненных ситуациях. Солидарная поддержка, когда это особенно необходимо.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Mutual Aid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        <span class="font-semibold">Что такое касса взаимопомощи?</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">
+                        Солидарная финансовая защита сообщества
+                    </h2>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Касса взаимопомощи — это механизм коллективной финансовой поддержки участников фонда «Адам» в случае наступления непредвиденных обстоятельств.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-handshake text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Принцип солидарности</h4>
+                                <p class="text-gray-600">Участники объединяют средства для взаимной поддержки в сложных ситуациях</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-balance-scale text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Прозрачные условия</h4>
+                                <p class="text-gray-600">Чёткие правила участия и выплат, регулируемые внутренними положениями фонда</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-file-contract text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Законная основа</h4>
+                                <p class="text-gray-600">Деятельность осуществляется в рамках Федерального закона № 135-ФЗ</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#protection-plans" class="inline-flex items-center text-primary font-semibold hover:underline">
+                        Узнать о программах защиты
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Image/Stats -->
+                <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+                    <div class="text-center mb-8">
+                        <div class="text-5xl font-bold text-primary mb-2">1 247</div>
+                        <div class="text-gray-700 font-semibold">Участников кассы</div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Общий фонд кассы</span>
+                                <span class="text-primary font-bold text-xl">5 200 000 ₽</span>
+                            </div>
+                            <div class="text-sm text-gray-600">Сформирован из ежегодных взносов участников</div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Выплачено за год</span>
+                                <span class="text-accent font-bold text-xl">890 000 ₽</span>
+                            </div>
+                            <div class="text-sm text-gray-600">Помощь 23 участникам в сложных ситуациях</div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Средняя выплата</span>
+                                <span class="text-green-500 font-bold text-xl">38 700 ₽</span>
+                            </div>
+                            <div class="text-sm text-gray-600">На лечение, восстановление имущества и др.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protection Plans -->
+    <section id="protection-plans" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Программы защиты</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Выберите подходящую программу участия в кассе взаимопомощи. Каждый участник получает финансовую защиту в соответствии с выбранным тарифом.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Basic Protection -->
+                <div class="protection-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="bg-primary text-white p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2 font-heading">Базовая защита</h3>
+                        <p class="text-white/90">Для защиты здоровья и имущества</p>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <div class="text-4xl font-bold text-gray-900 mb-2">3 000 ₽</div>
+                            <div class="text-gray-600">Ежегодный взнос</div>
+                        </div>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-primary mb-1">до 1 000 000 ₽</div>
+                                <div class="text-gray-700">Максимальная выплата</div>
+                            </div>
+                            
+                            <div class="border-t pt-6">
+                                <h4 class="font-bold mb-4 text-lg">Что покрывается:</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Лечение после несчастного случая</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Восстановление здоровья</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Ремонт недвижимого имущества</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Потеря имущества из-за ЧП</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button onclick="showJoinForm('basic')" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                            Присоединиться к программе
+                        </button>
+                        
+                        <div class="text-center mt-4 text-sm text-gray-600">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Действует 1 год с момента оплаты взноса
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Extended Protection -->
+                <div class="protection-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-accent relative">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-1 bg-accent text-white text-sm font-bold rounded-full">
+                            РЕКОМЕНДУЕМ
+                        </span>
+                    </div>
+                    
+                    <div class="bg-accent text-white p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2 font-heading">Расширенная защита</h3>
+                        <p class="text-white/90">Полная защита имущества и здоровья</p>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <div class="text-4xl font-bold text-gray-900 mb-2">30 000 ₽</div>
+                            <div class="text-gray-600">Ежегодный взнос</div>
+                        </div>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-accent mb-1">до 10 000 000 ₽</div>
+                                <div class="text-gray-700">Максимальная выплата</div>
+                            </div>
+                            
+                            <div class="border-t pt-6">
+                                <h4 class="font-bold mb-4 text-lg">Что покрывается:</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span class="font-semibold">Всё из базовой программы +</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Полное восстановление имущества</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Компенсация утраченного имущества</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Защита коммерческой недвижимости</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>Юридическая поддержка при спорах</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button onclick="showJoinForm('extended')" class="w-full bg-accent text-white py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors">
+                            Выбрать расширенную защиту
+                        </button>
+                        
+                        <div class="text-center mt-4 text-sm text-gray-600">
+                            <i class="fas fa-star mr-1"></i>
+                            Наиболее популярная программа среди участников
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 font-heading text-center">Важная информация</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 border rounded-lg">
+                        <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-clock text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Срок рассмотрения</h4>
+                        <p class="text-gray-600 text-sm">Заявки рассматриваются в течение 14 рабочих дней</p>
+                    </div>
+                    
+                    <div class="text-center p-6 border rounded-lg">
+                        <div class="w-12 h-12 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-file-invoice-dollar text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Документы для выплаты</h4>
+                        <p class="text-gray-600 text-sm">Необходимы подтверждающие документы о наступлении случая</p>
+                    </div>
+                    
+                    <div class="text-center p-6 border rounded-lg">
+                        <div class="w-12 h-12 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-user-friends text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Солидарная ответственность</h4>
+                        <p class="text-gray-600 text-sm">Все участники разделяют ответственность в рамках фонда</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Как это работает</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Простой и прозрачный процесс участия и получения поддержки в рамках кассы взаимопомощи
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Steps Timeline -->
+                <div class="hidden lg:block absolute left-0 right-0 top-1/2 h-1 bg-gray-200 transform -translate-y-1/2"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10">
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 font-heading">Регистрация</h3>
+                        <p class="text-gray-600 mb-6">
+                            Заполните заявку на участие в кассе взаимопомощи и выберите подходящую программу защиты
+                        </p>
+                        <div class="text-primary font-semibold">
+                            <i class="fas fa-user-plus mr-2"></i>
+                            Станьте участником
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10">
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 font-heading">Взнос</h3>
+                        <p class="text-gray-600 mb-6">
+                            Оплатите ежегодный взнос согласно выбранной программе (3 000 ₽ или 30 000 ₽)
+                        </p>
+                        <div class="text-primary font-semibold">
+                            <i class="fas fa-wallet mr-2"></i>
+                            Подтвердите участие
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10">
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 font-heading">Период защиты</h3>
+                        <p class="text-gray-600 mb-6">
+                            В течение года вы находитесь под защитой кассы взаимопомощи согласно условиям программы
+                        </p>
+                        <div class="text-primary font-semibold">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Защита активна
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="step-card bg-white rounded-xl shadow-lg p-8 text-center">
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10">
+                            4
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 font-heading">Поддержка при случае</h3>
+                        <p class="text-gray-600 mb-6">
+                            В случае наступления страхового случая подайте заявку и получите финансовую поддержку
+                        </p>
+                        <div class="text-primary font-semibold">
+                            <i class="fas fa-hand-holding-heart mr-2"></i>
+                            Получите помощь
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Renewal Info -->
+            <div class="mt-12 bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4 font-heading">Продление участия</h3>
+                <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                    За 30 дней до окончания срока действия защиты мы напомним вам о необходимости продления участия.
+                    Вы можете продолжить участие в той же программе или изменить её.
+                </p>
+                <div class="inline-flex items-center bg-white px-6 py-3 rounded-lg font-semibold">
+                    <i class="fas fa-bell text-primary mr-3"></i>
+                    <span>Автоматическое напоминание о продлении</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Частые вопросы</h2>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+                    Ответы на наиболее распространённые вопросы о кассе взаимопомощи
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 rounded-xl">
+                            <span>Чем касса взаимопомощи отличается от страховки?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <div class="text-gray-700 border-t pt-6">
+                                <p class="mb-4">Касса взаимопомощи основана на принципах солидарности и взаимопомощи внутри сообщества участников фонда, а не на коммерческих принципах страхования.</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                        <span>Никаких скрытых условий и мелкого шрифта</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                        <span>Прозрачное распределение средств между участниками</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                        <span>Участие в принятии решений о выплатах</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 rounded-xl">
+                            <span>Какие документы нужны для получения выплаты?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <div class="text-gray-700 border-t pt-6">
+                                <p class="mb-4">В зависимости от ситуации требуется разный набор документов. Основные документы включают:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file-medical text-primary mr-2"></i>
+                                        <span>Медицинские документы (при ущербе здоровью)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file-invoice text-primary mr-2"></i>
+                                        <span>Акт о повреждении имущества</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file-police text-primary mr-2"></i>
+                                        <span>Справки из полиции или МЧС (при необходимости)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-receipt text-primary mr-2"></i>
+                                        <span>Документы, подтверждающие стоимость восстановления</span>
+                                    </li>
+                                </ul>
+                                <p class="mt-4 text-sm text-gray-600">Точный список документов предоставляется после подачи заявки на выплату.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-xl shadow-sm border">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 rounded-xl">
+                            <span>Сколько времени занимает рассмотрение заявки на выплату?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <div class="text-gray-700 border-t pt-6">
+                                <p class="mb-4">Стандартный срок рассмотрения заявки на выплату составляет <strong>14 рабочих дней</strong> с момента предоставления полного пакета документов.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-blue-700">1-3 дня</div>
+                                        <div class="text-sm text-gray-600">Первичная проверка документов</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-blue-700">3-7 дней</div>
+                                        <div class="text-sm text-gray-600">Рассмотрение комиссией</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-blue-700">1-4 дня</div>
+                                        <div class="text-sm text-gray-600">Оформление выплаты</div>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-sm text-gray-600">В экстренных случаях (угроза жизни, здоровью) срок рассмотрения может быть сокращён.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white rounded-xl shadow-sm border">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 rounded-xl">
+                            <span>Можно ли вернуть взнос, если не было обращений?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <div class="text-gray-700 border-t pt-6">
+                                <p class="mb-4">Нет, взнос не возвращается, если в течение года не было обращений за выплатой. Это обусловлено принципами работы кассы взаимопомощи:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-users text-primary mr-2"></i>
+                                        <span>Средства идут на формирование общего фонда помощи</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-hand-holding-heart text-primary mr-2"></i>
+                                        <span>Ваш взнос помогает другим участникам в сложных ситуациях</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-primary mr-2"></i>
+                                        <span>Вы получаете финансовую защиту на весь период действия</span>
+                                    </li>
+                                </ul>
+                                <p class="mt-4">Взнос можно рассматривать как плату за участие в системе взаимной поддержки сообщества.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-white rounded-xl shadow-sm border">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 rounded-xl">
+                            <span>Что делать, если я хочу прекратить участие?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <div class="text-gray-700 border-t pt-6">
+                                <p class="mb-4">Вы можете прекратить участие в кассе взаимопомощи по окончании срока действия вашей программы. Для этого:</p>
+                                <ol class="space-y-2 list-decimal pl-5">
+                                    <li class="pl-2">Не оплачивайте продление участия</li>
+                                    <li class="pl-2">Уведомите нас о своём решении за 30 дней до окончания срока</li>
+                                    <li class="pl-2">Получите подтверждение о прекращении участия</li>
+                                </ol>
+                                <div class="mt-4 p-4 bg-yellow-50 rounded-lg">
+                                    <p class="text-sm text-yellow-800">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <strong>Важно:</strong> Защита действует только до окончания оплаченного периода. После прекращения участия вы не сможете претендовать на выплаты.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="/faq" class="inline-flex items-center text-primary font-semibold hover:underline">
+                        <i class="fas fa-question-circle mr-2"></i>
+                        Смотреть все вопросы и ответы
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Начните защищать своё будущее уже сегодня</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Присоединяйтесь к кассе взаимопомощи фонда «Адам» и получите финансовую защиту для себя и своей семьи.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="showJoinForm('basic')" class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                        Базовая защита: 3 000 ₽/год
+                    </button>
+                    <button onclick="showJoinForm('extended')" class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors">
+                        Расширенная защита: 30 000 ₽/год
+                    </button>
+                </div>
+                
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                        <i class="fas fa-shield-alt text-2xl mb-3"></i>
+                        <p class="font-semibold">Финансовая защита</p>
+                        <p class="text-sm">До 10 000 000 ₽</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                        <i class="fas fa-clock text-2xl mb-3"></i>
+                        <p class="font-semibold">Быстрая помощь</p>
+                        <p class="text-sm">Решение за 14 дней</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                        <i class="fas fa-handshake text-2xl mb-3"></i>
+                        <p class="font-semibold">Солидарность</p>
+                        <p class="text-sm">Поддержка сообщества</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Form Modal -->
+    <div id="joinModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold font-heading" id="modalTitle">Присоединиться к кассе взаимопомощи</h3>
+                    <button onclick="hideJoinForm()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="joinForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Выбранная программа</label>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div id="selectedProgram" class="font-semibold"></div>
+                            <div id="selectedPrice" class="text-primary font-bold"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">ФИО *</label>
+                        <input type="text" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Телефон *</label>
+                        <input type="tel" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+7 (___) ___-__-__">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email *</label>
+                        <input type="email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" required class="mr-2">
+                            <span class="text-sm text-gray-700">Я согласен с <a href="/terms" class="text-primary hover:underline">условиями участия</a> и <a href="/privacy" class="text-primary hover:underline">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm text-gray-700">Хочу получать информацию о новых проектах и акциях фонда</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors">
+                        Отправить заявку
+                    </button>
+                    
+                    <div class="text-center text-sm text-gray-600">
+                        <p>После отправки заявки наш менеджер свяжется с вами в течение 2 часов для оформления участия.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Join Form Modal Functions
+        function showJoinForm(program) {
+            const modal = document.getElementById('joinModal');
+            const programName = document.getElementById('selectedProgram');
+            const programPrice = document.getElementById('selectedPrice');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            if (program === 'basic') {
+                programName.textContent = 'Базовая защита';
+                programPrice.textContent = '3 000 ₽ в год';
+                modalTitle.textContent = 'Присоединиться к базовой защите';
+            } else {
+                programName.textContent = 'Расширенная защита';
+                programPrice.textContent = '30 000 ₽ в год';
+                modalTitle.textContent = 'Присоединиться к расширенной защите';
+            }
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideJoinForm() {
+            const modal = document.getElementById('joinModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Form Submission
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Наш менеджер свяжется с вами в ближайшее время.');
+            hideJoinForm();
+            this.reset();
+        });
+        
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // Toggle current answer
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                    
+                    // Close other answers
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            const otherAnswer = otherQuestion.nextElementSibling;
+                            const otherIcon = otherQuestion.querySelector('i');
+                            otherAnswer.classList.add('hidden');
+                            otherIcon.classList.remove('fa-chevron-up');
+                            otherIcon.classList.add('fa-chevron-down');
+                        }
+                    });
+                });
+            });
+            
+            // Close modal on outside click
+            document.getElementById('joinModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideJoinForm();
+                }
+            });
+            
+            // Phone input mask
+            const phoneInput = document.querySelector('input[type="tel"]');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                    e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — Adamfond | Обработка персональных данных</title>
+    <meta name="description" content="Политика конфиденциальности благотворительного фонда «Адам». Правила обработки и защиты персональных данных.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="/assets/js/localTailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#05affa',
+                        secondary: '#eeeeee',
+                        accent: '#ff5c39',
+                        background: '#ffffff',
+                        dark: '#111111',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .policy-section {
+            scroll-margin-top: 2rem;
+        }
+        .toc-link {
+            position: relative;
+            padding-left: 1rem;
+        }
+        .toc-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #05affa;
+            border-radius: 50%;
+        }
+        .toc-link.active {
+            color: #05affa;
+            font-weight: 600;
+        }
+        .toc-link.active::before {
+            background-color: #ff5c39;
+            width: 8px;
+            height: 8px;
+        }
+        .legal-term {
+            border-left: 3px solid #05affa;
+            background-color: #f8fafc;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .definition dt {
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .definition dd {
+            margin-left: 1rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-body">
+
+    <!-- Header -->
+       <header id="header">
+        <div class="bg-primary text-white">
+            <div class="container mx-auto flex justify-between items-center py-2 px-4">
+                <div class="hidden md:flex branding items-center">
+                    <p class="text-sm">Добро пожаловать! Здесь вы найдете информацию о наших проектах и инициативах, направленных на улучшение жизни и поддержку нуждающихся.</p>
+                </div>
+                <div class="contact flex flex-row items-center md:items-end space-y-2">
+                    <!-- Social icons: Youtube, VK, WhatsApp, OK -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com" target="_blank" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.vk.com" target="_blank" class="text-white">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.ok.ru" target="_blank" class="text-white">
+                            <i class="fab fa-odnoklassniki"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile header -->
+        <div class="container mx-auto flex md:hidden flex-wrap items-center p-4 gap-0">
+            <!-- Logo -->
+            <div class="w-1/2 branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="w-1/2 contact flex flex-col items-end space-y-2">
+                <a href="mailto:info@adamfond.com" class="text-gray-600">info@adamfond.com</a>
+                <button class="bg-accent text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">
+                    Позвонить
+                </button>
+            </div>
+
+            <!-- Search + Hamburger -->
+            <div class="w-full flex items-center gap-2 mt-4 relative">
+                <!-- Search -->
+                <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <nav id="mobile-menu" class="w-full hidden mt-3 flex flex-col gap-3">
+                <a href="/" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Главная
+                </a>
+                <a href="/about" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    О фонде
+                </a>
+                <a href="/projects" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Проекты
+                </a>
+                <a href="/mutual-aid" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Касса взаимопомощи
+                </a>
+                <a href="/contact" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Контакты
+                </a>
+                <a href="/entrepreneurs" class="py-3 px-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+                    Поддержка предпринимателей
+                </a>
+            </nav>
+        </div>
+
+        <!-- Desktop header -->
+        <div class="container mx-auto hidden md:flex items-center justify-between p-4 gap-6">
+
+            <!-- Branding -->
+            <div class="branding flex items-center">
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="h-20" alt="Благотворительный фонд Адам">
+                </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 max-w-lg">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"></path>
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Поиск..."
+                        class="w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                </div>
+            </div>
+
+            <!-- Help (Icon + Phone + Email) -->
+            <div class="flex items-center gap-3 text-right">
+                <div class="text-gray-500">
+                    <!-- Change icon size -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="48px" width="48px" id="Layer_1" viewBox="0 0 508 508" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#05affa;" cx="254" cy="254" r="254"></circle> <path style="fill:#FFFFFF;" d="M303.7,303.3c30.5-17.3,51-50.1,51-87.6c0-55.7-45.1-100.8-100.8-100.8S153.2,160,153.2,215.6 c0,37.6,20.6,70.3,51,87.6C141,319.3,89.7,365,66,424.8c46.5,51.1,113.5,83.2,188,83.2s141.5-32.1,188-83.2 C418.3,365,367,319.3,303.7,303.3z"></path> <path style="fill:#ffffff;" d="M401.6,182.3h-15.8C370.9,123.4,317.5,79.6,254,79.6s-116.9,43.7-131.8,102.7h-15.8 c-5.4,0-9.8,4.4-9.8,9.8V240c0,5.4,4.4,9.8,9.8,9.8h20c6.1,0,10.8-5.5,9.7-11.4c-2-10.4-2.7-21.3-1.8-32.5 c4.8-59.3,53.6-106.9,113.1-110.1c69.2-3.8,126.8,51.5,126.8,119.9c0,7.8-0.8,15.3-2.2,22.7c-1.2,6,3.6,11.5,9.6,11.5h1.8 c-4.2,13-14.9,37.2-38.3,50.2c-19.6,10.9-44.3,11.9-73.4,2.8c-1.5-6.7-8.9-14.6-16.5-18.3c-9.8-4.9-15.9-0.8-19.4,6.2 s-3,14.3,6.7,19.2c8.6,4.3,21.6,5.2,27,0.5c13.9,4.3,26.9,6.5,39,6.5c15,0,28.5-3.3,40.4-10c27.5-15.3,38.8-43.7,42.8-57.2h9.9 c5.4,0,9.8-4.4,9.8-9.8v-47.9C411.4,186.7,407,182.3,401.6,182.3z"></path> </g></svg>
+                </div>
+                <div class="flex flex-col">
+                    <!-- Set font Arial -->
+                    <a href="tel:88002225395" class="text-xl font-bold font-arial text-primary hover:text-accent">
+                        8 (800) 222-53-95
+                    </a>
+                    <a href="mailto:info@adamfond.com" class="text-gray-600 hover:text-primary">
+                        info@adamfond.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charity Button -->
+            <div>
+                <!-- Add border width -->
+                <a href="/projects" class="px-5 py-3 border-2 rounded-full border-primary text-primary shadow-lg hover:bg-primary hover:text-white font-bold hover:opacity-90 transition">
+                    <!-- charity hand icon -->
+                    <i class="fas fa-hand-holding-heart"></i> Оказать помощь
+                </a>
+            </div>
+
+            <!-- Call Button -->
+            <div>
+                <!-- Add border width -->
+                <button class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-lg hover:bg-accent hover:text-white transition">
+                    <!-- phone icon 2 -->
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
+            </div>
+
+        </div>
+
+        <nav class="hidden md:block bg-white border-t border-b border-gray-200">
+            <div class="container mx-auto flex items-center gap-8 px-4 py-3">
+
+                <!-- Main links -->
+                <a href="/" class="font-medium text-primary hover:text-accent transition">
+                    Главная
+                </a>
+
+                <a href="/about" class="font-medium text-primary hover:text-accent transition">
+                    О фонде
+                </a>
+
+                <!-- Dropdown -->
+                <div class="relative group">
+                    <a href="/projects" class="font-medium text-primary hover:text-accent transition inline-flex items-center gap-1">
+                        Проекты
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div class="absolute left-0 top-full w-56 pt-3 bg-white border border-gray-200 rounded-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition
+                                shadow-sm">
+                        <a href="/projects" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Все проекты
+                        </a>
+                        <a href="/projects/social" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Социальные проекты
+                        </a>
+                        <a href="/projects/business" class="block px-4 py-2 text-primary hover:text-accent transitio">
+                            Предпринимательство
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/mutual-aid" class="font-medium text-primary hover:text-accent transition">
+                    Касса взаимопомощи
+                </a>
+
+                <a href="/entrepreneurs" class="font-medium text-primary hover:text-accent transition">
+                    Предпринимателям
+                </a>
+
+                <a href="/events" class="font-medium text-primary hover:text-accent transition">
+                    Мероприятия
+                </a>
+
+                <a href="/contact" class="ml-auto font-medium text-primary hover:text-accent transition">
+                    Контакты
+                </a>
+
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20">
+        <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-white/80 mb-6">
+                    <a href="/" class="hover:text-white">Главная</a>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                    <span class="text-white font-semibold">Политика конфиденциальности</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading">Политика конфиденциальности</h1>
+                <p class="text-xl text-white/90 max-w-2xl">
+                    Положение об обработке и защите персональных данных благотворительного фонда «Адам»
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents & Content -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-6 font-heading text-primary">Содержание</h3>
+                        <nav class="space-y-3">
+                            <a href="#introduction" class="block toc-link hover:text-primary transition-colors">
+                                Введение
+                            </a>
+                            <a href="#definitions" class="block toc-link hover:text-primary transition-colors">
+                                Основные понятия
+                            </a>
+                            <a href="#principles" class="block toc-link hover:text-primary transition-colors">
+                                Принципы обработки данных
+                            </a>
+                            <a href="#data-collection" class="block toc-link hover:text-primary transition-colors">
+                                Какие данные собираем
+                            </a>
+                            <a href="#data-usage" class="block toc-link hover:text-primary transition-colors">
+                                Цели обработки данных
+                            </a>
+                            <a href="#legal-basis" class="block toc-link hover:text-primary transition-colors">
+                                Правовые основания
+                            </a>
+                            <a href="#data-transfer" class="block toc-link hover:text-primary transition-colors">
+                                Передача данных третьим лицам
+                            </a>
+                            <a href="#data-protection" class="block toc-link hover:text-primary transition-colors">
+                                Защита персональных данных
+                            </a>
+                            <a href="#rights" class="block toc-link hover:text-primary transition-colors">
+                                Права субъектов данных
+                            </a>
+                            <a href="#cookies" class="block toc-link hover:text-primary transition-colors">
+                                Использование cookie
+                            </a>
+                            <a href="#final" class="block toc-link hover:text-primary transition-colors">
+                                Заключительные положения
+                            </a>
+                        </nav>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <div class="text-sm text-gray-600">
+                                <p class="mb-2"><i class="far fa-calendar-alt mr-2"></i>Дата вступления в силу:</p>
+                                <p class="font-semibold">1 января 2024 года</p>
+                            </div>
+                            <div class="mt-4 text-sm text-gray-600">
+                                <p class="mb-2"><i class="fas fa-file-pdf mr-2"></i>Версия для скачивания:</p>
+                                <a href="/assets/documents/privacy-policy.pdf" class="text-primary hover:underline inline-flex items-center">
+                                    <i class="fas fa-download mr-2"></i>
+                                    PDF (245 КБ)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <!-- Introduction -->
+                        <section id="introduction" class="policy-section mb-12">
+                            <div class="flex items-start mb-6">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-file-contract text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-2xl md:text-3xl font-bold mb-4 font-heading">Введение</h2>
+                                    <p class="text-gray-700 mb-4">
+                                        Благотворительный фонд «Адам» (далее — «Фонд», «мы», «наш») стремится защищать и уважать вашу конфиденциальность. Настоящая Политика конфиденциальности (далее — «Политика») описывает, как мы собираем, используем, обрабатываем и защищаем ваши персональные данные.
+                                    </p>
+                                    <p class="text-gray-700 mb-4">
+                                        Политика применяется ко всем персональным данным, которые мы получаем от вас при использовании нашего веб-сайта adamfond.com (далее — «Сайт»), участии в благотворительных программах, проектах фонда, кассе взаимопомощи или при любом другом взаимодействии с Фондом.
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Используя наш Сайт и предоставляя нам ваши персональные данные, вы подтверждаете, что ознакомились с настоящей Политикой и соглашаетесь с её условиями.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Definitions -->
+                        <section id="definitions" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">1</span>
+                                Основные понятия
+                            </h2>
+                            
+                            <div class="definition">
+                                <dl class="space-y-4">
+                                    <div>
+                                        <dt>Персональные данные</dt>
+                                        <dd>Любая информация, относящаяся к прямо или косвенно определённому или определяемому физическому лицу (субъекту персональных данных).</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Обработка персональных данных</dt>
+                                        <dd>Любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Оператор персональных данных</dt>
+                                        <dd>Благотворительный фонд «Адам», самостоятельно или совместно с другими лицами организующий и (или) осуществляющий обработку персональных данных, а также определяющий цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Субъект персональных данных</dt>
+                                        <dd>Физическое лицо, к которому относятся соответствующие персональные данные (участник, благотворитель, посетитель сайта и др.).</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </section>
+                        
+                        <!-- Principles -->
+                        <section id="principles" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">2</span>
+                                Принципы обработки персональных данных
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Обработка персональных данных в Фонде осуществляется на основе следующих принципов:
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-balance-scale text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Законность и справедливость</h3>
+                                        <p class="text-gray-700">Обработка персональных данных осуществляется на законных и справедливых основаниях.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-bullseye text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Ограничение по целям</h3>
+                                        <p class="text-gray-700">Обработка осуществляется только в заранее определённых, законных целях, соответствующих уставной деятельности Фонда.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-database text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Минимизация данных</h3>
+                                        <p class="text-gray-700">Объём и характер обрабатываемых данных соответствуют заявленным целям обработки.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-shield-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Безопасность</h3>
+                                        <p class="text-gray-700">Обеспечение безопасности данных при их обработке, защита от несанкционированного доступа и утечек.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-history text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Ограничение хранения</h3>
+                                        <p class="text-gray-700">Хранение данных осуществляется не дольше, чем этого требуют цели их обработки.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Точность и актуальность</h3>
+                                        <p class="text-gray-700">Принимаются разумные меры для обеспечения актуальности и точности обрабатываемых данных.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Data Collection -->
+                        <section id="data-collection" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">3</span>
+                                Какие персональные данные мы собираем
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Мы можем собирать следующие категории персональных данных:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Основные данные</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-user text-primary mt-1 mr-2"></i>
+                                            <span>Фамилия, имя, отчество</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-phone text-primary mt-1 mr-2"></i>
+                                            <span>Номер телефона</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-envelope text-primary mt-1 mr-2"></i>
+                                            <span>Адрес электронной почты</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-2"></i>
+                                            <span>Адрес проживания</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Для благотворителей и участников</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-credit-card text-primary mt-1 mr-2"></i>
+                                            <span>Реквизиты для пожертвований</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-history text-primary mt-1 mr-2"></i>
+                                            <span>История участия в проектах</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-file-invoice text-primary mt-1 mr-2"></i>
+                                            <span>Данные для налоговых вычетов</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Для нуждающихся</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-info-circle text-primary mt-1 mr-2"></i>
+                                            <span>Информация о жизненной ситуации</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-file-medical text-primary mt-1 mr-2"></i>
+                                            <span>Данные о состоянии здоровья (при необходимости)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-home text-primary mt-1 mr-2"></i>
+                                            <span>Информация о жилищных условиях</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Технические данные</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-desktop text-primary mt-1 mr-2"></i>
+                                            <span>IP-адрес, тип устройства</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-cookie text-primary mt-1 mr-2"></i>
+                                            <span>Cookie и аналогичные технологии</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-chart-line text-primary mt-1 mr-2"></i>
+                                            <span>Данные об использовании сайта</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="legal-term">
+                                <p class="text-gray-700">
+                                    <strong>Важно:</strong> Мы не собираем специальные категории персональных данных (раса, национальность, политические взгляды, религиозные или философские убеждения, состояние здоровья, интимная жизнь) без вашего явного согласия, за исключением случаев, предусмотренных законодательством.
+                                </p>
+                            </div>
+                        </section>
+                        
+                        <!-- Data Usage -->
+                        <section id="data-usage" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">4</span>
+                                Цели обработки персональных данных
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Ваши персональные данные обрабатываются для следующих целей:
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-hands-helping text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Оказание благотворительной помощи</h3>
+                                        <p class="text-gray-700">Организация и предоставление помощи нуждающимся, адресная поддержка, реализация социальных программ.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-hand-holding-usd text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Оформление пожертвований</h3>
+                                        <p class="text-gray-700">Приём и учёт пожертвований, оформление документов для налоговых вычетов, отчётность перед благотворителями.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-project-diagram text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Реализация проектов фонда</h3>
+                                        <p class="text-gray-700">Организация участия в проектах, кассе взаимопомощи, предпринимательских программах.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-users text-yellow-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Коммуникация</h3>
+                                        <p class="text-gray-700">Информирование о деятельности фонда, мероприятиях, новых проектах и возможностях участия.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-gavel text-red-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Выполнение юридических обязательств</h3>
+                                        <p class="text-gray-700">Соблюдение требований законодательства РФ, в том числе Федерального закона № 135-ФЗ «О благотворительной деятельности».</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-chart-line text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2">Улучшение работы сайта и услуг</h3>
+                                        <p class="text-gray-700">Анализ использования сайта, совершенствование функционала, обеспечение безопасности.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Legal Basis -->
+                        <section id="legal-basis" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">5</span>
+                                Правовые основания обработки персональных данных
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Обработка ваших персональных данных осуществляется на следующих правовых основаниях:
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-2 text-blue-700">Согласие субъекта данных</h3>
+                                    <p class="text-gray-700">При регистрации на сайте, оформлении пожертвований, участии в проектах вы даёте явное согласие на обработку ваших персональных данных для конкретных целей.</p>
+                                </div>
+                                
+                                <div class="bg-green-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-2 text-green-700">Договорные отношения</h3>
+                                    <p class="text-gray-700">При заключении договоров об участии в проектах, кассе взаимопомощи или иных соглашениях с Фондом.</p>
+                                </div>
+                                
+                                <div class="bg-red-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-2 text-red-700">Законные интересы Фонда</h3>
+                                    <p class="text-gray-700">Для обеспечения безопасности, предотвращения мошенничества, улучшения качества услуг, при условии соблюдения баланса интересов.</p>
+                                </div>
+                                
+                                <div class="bg-purple-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-2 text-purple-700">Выполнение юридических обязательств</h3>
+                                    <p class="text-gray-700">В соответствии с требованиями законодательства РФ, включая налоговое, бухгалтерское, благотворительное законодательство.</p>
+                                </div>
+                                
+                                <div class="bg-yellow-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Защита жизненно важных интересов</h3>
+                                    <p class="text-gray-700">В случаях, когда обработка данных необходима для защиты жизни, здоровья или иных жизненно важных интересов субъекта данных или других лиц.</p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Data Transfer -->
+                        <section id="data-transfer" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">6</span>
+                                Передача персональных данных третьим лицам
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Мы можем передавать ваши персональные данные следующим категориям получателей:
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-primary pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Государственные органы</h3>
+                                    <p class="text-gray-700">Только в случаях, предусмотренных законодательством РФ (налоговые органы, правоохранительные органы по официальным запросам).</p>
+                                </div>
+                                
+                                <div class="border-l-4 border-green-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Партнёры и подрядчики</h3>
+                                    <p class="text-gray-700">Компании, которые предоставляют услуги для Фонда (платёжные системы, хостинг-провайдеры, службы доставки), при условии заключения с ними соглашений о конфиденциальности.</p>
+                                </div>
+                                
+                                <div class="border-l-4 border-blue-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Другие благотворительные организации</h3>
+                                    <p class="text-gray-700">Только с вашего согласия для координации помощи или совместных проектов.</p>
+                                </div>
+                                
+                                <div class="legal-term">
+                                    <p class="text-gray-700">
+                                        <strong>Важно:</strong> Мы не продаём, не обмениваем и не передаём ваши персональные данные третьим лицам в коммерческих целях. Все наши партнёры обязуются соблюдать конфиденциальность и использовать данные только в целях, для которых они были предоставлены.
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3">Международная передача данных</h3>
+                                    <p class="text-gray-700 mb-4">Фонд осуществляет деятельность преимущественно на территории Российской Федерации. В случае необходимости международной передачи данных мы обеспечим соответствие такой передачи требованиям законодательства РФ о защите персональных данных.</p>
+                                    <p class="text-gray-700">На текущий момент мы не передаём данные в страны, не обеспечивающие адекватный уровень защиты персональных данных.</p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Data Protection -->
+                        <section id="data-protection" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">7</span>
+                                Защита персональных данных
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Фонд принимает все необходимые организационные и технические меры для защиты ваших персональных данных от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-lock text-primary text-xl"></i>
+                                    </div>
+                                    <h3 class="font-bold text-lg mb-3">Технические меры</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-shield-alt text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Шифрование данных при передаче (SSL/TLS)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-firewall text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Межсетевые экраны и системы обнаружения вторжений</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-database text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Регулярное резервное копирование данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-key text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Системы контроля доступа и аутентификации</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-user-shield text-primary text-xl"></i>
+                                    </div>
+                                    <h3 class="font-bold text-lg mb-3">Организационные меры</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-file-signature text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Положение о защите персональных данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-graduation-cap text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Обучение сотрудников вопросам защиты данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-clipboard-list text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Реестр обработки персональных данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-search text-primary text-sm mt-1 mr-2"></i>
+                                            <span>Регулярные аудиты безопасности</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-2 text-yellow-800">Уведомление об утечке данных</h3>
+                                        <p class="text-yellow-700">
+                                            В случае обнаружения утечки персональных данных мы обязуемся уведомить уполномоченный орган по защите прав субъектов персональных данных (Роскомнадзор) и вас как субъекта данных в сроки, установленные законодательством РФ.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Rights -->
+                        <section id="rights" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">8</span>
+                                Ваши права как субъекта персональных данных
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                В соответствии с Федеральным законом № 152-ФЗ «О персональных данных» вы имеете следующие права:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border border-gray-200 rounded-lg p-6">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Основные права</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-eye text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на доступ</strong> к своим персональным данным</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-edit text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на уточнение</strong> и обновление данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-trash-alt text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на удаление</strong> данных (право на забвение)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-ban text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на ограничение</strong> обработки данных</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="border border-gray-200 rounded-lg p-6">
+                                    <h3 class="font-bold text-lg mb-3 text-primary">Дополнительные права</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-file-export text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на переносимость</strong> данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-times-circle text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на отзыв согласия</strong> на обработку данных</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-exclamation-triangle text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на возражение</strong> против обработки</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-gavel text-primary mt-1 mr-3"></i>
+                                            <span><strong>Право на обжалование</strong> действий оператора</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 bg-blue-50 p-6 rounded-lg">
+                                <h3 class="font-bold text-lg mb-3 text-blue-700">Как реализовать свои права</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Для реализации своих прав вы можете:
+                                </p>
+                                <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                                    <li>Отправить письменный запрос по адресу: Республика Дагестан, Новолакский район, с. Тухчар, ул. Тридцатая, д. 1</li>
+                                    <li>Отправить запрос на email: <a href="mailto:privacy@adamfond.com" class="text-primary hover:underline">privacy@adamfond.com</a></li>
+                                    <li>Обратиться по телефону: <a href="tel:88002225395" class="text-primary hover:underline">8 (800) 222-53-95</a> (доб. 107)</li>
+                                </ol>
+                                <p class="text-gray-700 mt-4">
+                                    Мы рассмотрим ваш запрос в течение <strong>30 календарных дней</strong> с момента получения.
+                                </p>
+                            </div>
+                        </section>
+                        
+                        <!-- Cookies -->
+                        <section id="cookies" class="policy-section mb-12">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">9</span>
+                                Использование файлов cookie
+                            </h2>
+                            
+                            <p class="text-gray-700 mb-6">
+                                Наш сайт использует файлы cookie и аналогичные технологии для улучшения работы сайта, анализа трафика и персонализации контента.
+                            </p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Тип cookie</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Название</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Назначение</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Срок хранения</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Обязательные</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">session_id</td>
+                                            <td class="px-6 py-4 text-sm text-gray-700">Обеспечение работы сессий пользователя</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Сессия</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Функциональные</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">language_pref</td>
+                                            <td class="px-6 py-4 text-sm text-gray-700">Сохранение языковых предпочтений</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">1 год</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Аналитические</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">_ga, _gid</td>
+                                            <td class="px-6 py-4 text-sm text-gray-700">Сбор статистики использования сайта</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2 года</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Маркетинговые</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">fbp, _fbp</td>
+                                            <td class="px-6 py-4 text-sm text-gray-700">Персонализация рекламных сообщений</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">90 дней</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3">Управление cookie</h3>
+                                    <p class="text-gray-700 mb-4">
+                                        Вы можете управлять использованием cookie через настройки вашего браузера:
+                                    </p>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-center">
+                                            <i class="fab fa-chrome text-primary mr-2"></i>
+                                            <a href="https://support.google.com/chrome/answer/95647" class="text-primary hover:underline">Google Chrome</a>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fab fa-firefox text-primary mr-2"></i>
+                                            <a href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas" class="text-primary hover:underline">Mozilla Firefox</a>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fab fa-safari text-primary mr-2"></i>
+                                            <a href="https://support.apple.com/ru-ru/guide/safari/sfri11471/mac" class="text-primary hover:underline">Safari</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="font-bold text-lg mb-3">Наш инструмент согласия</h3>
+                                    <p class="text-gray-700 mb-4">
+                                        При первом посещении сайта вы увидите баннер с запросом согласия на использование cookie. Вы можете:
+                                    </p>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                            <span>Принять все cookie</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-cog text-primary mt-1 mr-2"></i>
+                                            <span>Настроить отдельные категории</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                            <span>Отклонить все, кроме обязательных</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Final -->
+                        <section id="final" class="policy-section">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-heading flex items-center">
+                                <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3 text-lg">10</span>
+                                Заключительные положения
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-primary pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Изменения в Политике</h3>
+                                    <p class="text-gray-700">
+                                        Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности. Актуальная версия Политики всегда доступна на нашем сайте. При существенных изменениях мы уведомим вас через сайт или по электронной почте.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-green-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Сроки хранения данных</h3>
+                                    <p class="text-gray-700">
+                                        Мы храним ваши персональные данные только в течение срока, необходимого для достижения целей обработки, или в течение срока, установленного законодательством РФ. По истечении этих сроков данные обезличиваются или уничтожаются.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-blue-500 pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Контактная информация</h3>
+                                    <p class="text-gray-700">
+                                        По всем вопросам, связанным с обработкой ваших персональных данных, вы можете обращаться:
+                                    </p>
+                                    <div class="mt-3 space-y-2">
+                                        <p class="flex items-center">
+                                            <i class="fas fa-envelope text-primary mr-3"></i>
+                                            <span>Email: <a href="mailto:privacy@adamfond.com" class="text-primary hover:underline">privacy@adamfond.com</a></span>
+                                        </p>
+                                        <p class="flex items-center">
+                                            <i class="fas fa-phone text-primary mr-3"></i>
+                                            <span>Телефон: <a href="tel:88002225395" class="text-primary hover:underline">8 (800) 222-53-95</a> (доб. 107)</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                                            <span>Адрес: Республика Дагестан, Новолакский район, с. Тухчар, ул. Тридцатая, д. 1</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="border-l-4 border-accent pl-6 py-2">
+                                    <h3 class="font-bold text-lg mb-2">Надзорные органы</h3>
+                                    <p class="text-gray-700 mb-2">
+                                        Если вы считаете, что ваши права в области защиты персональных данных были нарушены, вы имеете право обратиться в уполномоченный орган:
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Федеральная служба по надзору в сфере связи, информационных технологий и массовых коммуникаций (Роскомнадзор)<br>
+                                        Сайт: <a href="https://rkn.gov.ru" class="text-primary hover:underline">rkn.gov.ru</a><br>
+                                        Телефон: <a href="tel:84959805310" class="text-primary hover:underline">+7 (495) 980-53-10</a>
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg mt-6">
+                                    <div class="text-center">
+                                        <p class="text-lg font-semibold text-gray-700 mb-2">Дата последнего обновления: <span class="text-primary">1 января 2024 года</span></p>
+                                        <p class="text-gray-600">Версия: 2.1</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Download -->
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl p-6">
+                                <div class="flex flex-col md:flex-row items-center justify-between">
+                                    <div class="mb-4 md:mb-0">
+                                        <h3 class="text-xl font-bold mb-2 font-heading">Скачать полный текст</h3>
+                                        <p class="text-gray-700">Сохраните копию Политики конфиденциальности на ваше устройство</p>
+                                    </div>
+                                    <div class="flex space-x-4">
+                                        <a href="/assets/documents/privacy-policy.pdf" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                            <i class="fas fa-download mr-3"></i>
+                                            PDF (245 КБ)
+                                        </a>
+                                        <a href="/assets/documents/privacy-policy.docx" class="inline-flex items-center bg-white text-primary border border-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                            <i class="fas fa-file-word mr-3"></i>
+                                            DOCX (180 КБ)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Logo & Description -->
+                <div class="space-y-4">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" class="h-16" alt="Благотворительный фонд Адам">
+                    </a>
+                    <p class="text-sm">
+                        Благотворительный фонд «Адам» объединяет людей для помощи нуждающимся, поддержки предпринимателей и реализации социальных проектов.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://vk.com/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/78002225395" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://ok.ru/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-odnoklassniki text-xl"></i>
+                        </a>
+                        <a href="https://t.me/adamfond" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Основные страницы -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Основное</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="/about" class="hover:text-white transition">О фонде</a></li>
+                        <li><a href="/projects" class="hover:text-white transition">Проекты</a></li>
+                        <li><a href="/mutual-aid" class="hover:text-white transition">Касса взаимопомощи</a></li>
+                        <li><a href="/contact" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Участникам -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Участникам</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/entrepreneurs" class="hover:text-white transition">Поддержка предпринимателей</a></li>
+                        <li><a href="/projects#social" class="hover:text-white transition">Социальные проекты</a></li>
+                        <li><a href="/projects#business" class="hover:text-white transition">Бизнес-проекты</a></li>
+                        <li><a href="/events" class="hover:text-white transition">Мероприятия</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 font-heading">Контакты</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <a href="tel:88002225395" class="hover:text-white transition">8 (800) 222-53-95</a>
+                                <p class="text-xs text-gray-400">Бесплатный звонок по РФ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <a href="mailto:info@adamfond.com" class="hover:text-white transition">info@adamfond.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-sm">Республика Дагестан</p>
+                                <p class="text-xs text-gray-400">с. Тухчар, ул. Тридцатая, д. 1</p>
+                            </div>
+                        </li>
+                        <li class="pt-4">
+                            <a href="/contact" class="inline-flex items-center text-accent hover:text-white transition">
+                                Написать нам
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-400 mb-4 md:mb-0">
+                    <p>&copy; 2025 Благотворительный фонд «Адам». Все права защищены.</p>
+                    <p class="mt-1">ОГРН: [введите при наличии] | ИНН: [введите при наличии]</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="/privacy" class="text-sm text-gray-400 hover:text-white transition">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="/terms" class="text-sm text-gray-400 hover:text-white transition">
+                        Условия участия
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Info -->
+            <div class="mt-8 text-xs text-gray-500 text-center">
+                <p>Деятельность осуществляется в соответствии с Федеральным законом РФ от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и благотворительных организациях».</p>
+                <p class="mt-2">Сайт разработан: <a href="https://groznet.com" target="_blank" class="text-primary hover:text-accent transition">GrozNet</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic footer loading (to be placed in main.js) -->
+    <script>
+    // Function to load footer
+    function loadFooter() {
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback footer if fetch fails
+                document.getElementById('footer').innerHTML = `
+                    <div class="container mx-auto px-4 py-8 text-center">
+                        <p>© 2025 Адамфонд. Благотворительный фонд.</p>
+                        <p class="mt-2"><a href="tel:88002225395">8 (800) 222-53-95</a> | <a href="mailto:info@adamfond.com">info@adamfond.com</a></p>
+                    </div>
+                `;
+            });
+    }
+
+    // Load footer when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    } else {
+        loadFooter();
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Table of Contents active link tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.policy-section');
+            const navLinks = document.querySelectorAll('.toc-link');
+            
+            // Function to update active link
+            function updateActiveLink() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = sectionId;
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initial call
+            updateActiveLink();
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveLink);
+            
+            // Smooth scroll for TOC links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Print button functionality
+            const printBtn = document.getElementById('printBtn');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+            
+            // Generate last updated date
+            const lastUpdatedElement = document.getElementById('lastUpdated');
+            if (lastUpdatedElement) {
+                const today = new Date();
+                const formattedDate = today.toLocaleDateString('ru-RU', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                lastUpdatedElement.textContent = formattedDate;
+            }
+        });
+    </script>
+</body>
+</html>
